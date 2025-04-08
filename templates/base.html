@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "My Portfolio" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        document.documentElement.classList.add("dark");
+    }
+    </script>
+</head>
+<body>
+    <header>
+    <nav>
+        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+        <a href="/projects" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a>
+        <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
+        <div class="toggle-wrapper">
+             <span class="toggle-label">Dark Mode</span>
+             <label class="switch">
+                <input type="checkbox" id="darkToggle">
+                <span class="slider round"></span>
+             </label>
+        </div>
+    </nav>
+</header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© {{ 2025 }} Mithilesh Chaurasiya | made with Flask</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+<script>
+  const toggle = document.getElementById("darkToggle");
+  const html = document.documentElement;
+
+  // Set checkbox state on load
+  if (localStorage.getItem("dark-mode") === "enabled") {
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      html.classList.add("dark");
+      localStorage.setItem("dark-mode", "enabled");
+    } else {
+      html.classList.remove("dark");
+      localStorage.setItem("dark-mode", "disabled");
+    }
+  });
+</script>
+<script>
+  // Wait until typing is done, then show second line
+  window.addEventListener('DOMContentLoaded', () => {
+    const secondLine = document.getElementById('second-line');
+    setTimeout(() => {
+      secondLine.classList.add('visible');
+    }, 3100); // Wait slightly more than typing duration (3s)
+  });
+</script>
+</body>
+</html>

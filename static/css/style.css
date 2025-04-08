@@ -1,0 +1,282 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --accent: #0077b5;
+  --linkedin: #0077b5;
+  --border: #ddd;
+}
+
+.dark {
+  --bg: #121212;
+  --text: #f0f0f0;
+  --accent: #66ccff;
+  --linkedin: #66ccff;
+  --border: #333;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0 1rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* Navbar */
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  background-color: var(--bg);
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--linkedin);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero-content .highlight {
+  color: var(--linkedin);
+}
+
+.hero-content h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero-content p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text);
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid var(--accent);
+  white-space: nowrap;
+  animation: typing 3s steps(35, end), blink-caret 0.75s step-end infinite;
+  width: fit-content;
+  margin: 0 auto 1rem;
+  font-size:2.5rem;
+  color: var(--text);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--linkedin); }
+}
+
+/* Social Links */
+.social-links a {
+  text-decoration: none;
+  color: var(--linkedin);
+  font-weight: bold;
+  margin: 0 0.5rem;
+  border-bottom: 2px solid transparent;
+}
+
+.social-links a:hover {
+  border-color: var(--linkedin);
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 1;
+  color: var(--text);
+}
+
+/* Projects */
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.project {
+  border-left: 4px solid var(--linkedin);
+  padding-left: 1rem;
+  transition: transform 0.3s ease;
+  color: var(--text);
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.project h2 {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.project a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.project-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--text);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.project-links a {
+  color: var(--linkedin);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Toggle Switch */
+.toggle-wrapper {
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle-label {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+.dark .slider {
+  background-color: #666;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
