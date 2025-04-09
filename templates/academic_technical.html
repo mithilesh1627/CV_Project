@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/academic.css') }}">
+
+<div class="academic-container">
+  <h1 data-aos="fade-down">Academic & Technical Overview</h1>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="education">🎓 Education</button>
+     <button class="tab" data-tab="experience">💼 Technical Experience</button>
+    <button class="tab" data-tab="skills">🛠️ Technical Skills</button>
+  <br>
+  </div>
+  <div class="tab-content active" id="education" data-aos="fade-up">
+  <div class="vertical-timeline">
+    <div class="vt-item" data-aos="fade-up">
+      <div class="vt-dot"></div>
+      <div class="vt-content">
+       <h3>Master in Computer Application (MCA)<span class="vt-sub">(Pursuing)</span></h3>
+        <p>National Institute of Technology - Agartala, India</p>
+        <p class="vt-date"><i class="fa-regular fa-calendar"></i> 2024 – Present</p>
+      </div>
+    </div>
+
+    <div class="vt-item" data-aos="fade-up">
+      <div class="vt-dot"></div>
+      <div class="vt-content">
+        <h3>B.Sc. in Computer Science</h3>
+        <p>Thakur College of Science & Commerce</p>
+        <p>Mumbai, India </p>
+        <p>CGPA: 8.87</p>
+        <p class="vt-date"><i class="fa-regular fa-calendar"></i> 2018 – 2021</p>
+      </div>
+    </div>
+
+    <div class="vt-item" data-aos="fade-up">
+      <div class="vt-dot"></div>
+      <div class="vt-content">
+        <h3>12<sup>th</sup> Std (HSC)</h3>
+        <p>Utkarsha Vidyalaya & Junior College</p>
+        <p>Mumbai, India</p>
+        <p>Percentage: 64%</p>
+        <p class="vt-date"><i class="fa-regular fa-calendar"></i> 2016 - 2018</p>
+      </div>
+    </div>
+
+    <div class="vt-item" data-aos="fade-up">
+      <div class="vt-dot"></div>
+      <div class="vt-content">
+        <h3>10<sup>th</sup> Std (SSC)</h3>
+        <p>Jai Deep Vidya Mandir English High School</p>
+        <p>Mumbai, India</p>
+        <p>Percentage: 75%</p>
+        <p class="vt-date"><i class="fa-regular fa-calendar"></i> 2006 - 2016</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="tab-content" id="skills" data-aos="fade-up">
+    <div class="skills-grid">
+      <div><i class="fab fa-python"></i> Python</div>
+      <div><i class="fab fa-java"></i> Java</div>
+      <div><img src="/static/icons/numpy.svg"> NumPy</div>
+      <div><img src="/static/icons/pandas.svg"> Pandas</div>
+      <div><img src="/static/icons/sklearn.svg"> Scikit-learn</div>
+      <div><img src="/static/icons/flask.svg"> Flask</div>
+      <div><i class="fas fa-database"></i> MySQL</div>
+      <div><img src="/static/icons/mongodb.svg"> MongoDB</div>
+      <div><img src="/static/icons/spark.svg"> PySpark</div>
+      <div><img src="/static/icons/azure.svg"> Azure ML</div>
+      <div><i class="fab fa-github"></i> GitHub</div>
+      <div><img src="/static/icons/selenium.svg"> Selenium</div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="experience" data-aos="fade-up">
+    <p><strong>Infosys Ltd. (Jul 2021 – Jan 2024)</strong><br>
+    <em>Senior System Associate / ETL Tester</em></p>
+    <ul class="exp-list">
+      <li>Optimized ETL pipelines for data warehouses.</li>
+      <li>Automated workflows with Python to save time.</li>
+      <li>Implemented anomaly detection in pipelines.</li>
+      <li>Ensured data quality with validation frameworks.</li>
+      <li>Worked cross-functionally for ML integration.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    // Remove 'active' class from tabs and contents
+    tabs.forEach(t => t.classList.remove("active"));
+    contents.forEach(c => {
+      c.classList.remove("active", "fade-in");
+    });
+
+    // Add 'active' class to the clicked tab and corresponding content
+    tab.classList.add("active");
+    const target = document.getElementById(tab.dataset.tab);
+    target.classList.add("active", "fade-in");
+  });
+});
+
+</script>
+{% endblock %}

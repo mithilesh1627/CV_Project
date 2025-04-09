@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script>
       if (localStorage.getItem("dark-mode") === "enabled") {
           document.documentElement.classList.add("dark");
@@ -18,7 +19,6 @@
   <nav>
       <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
       <a href="/academic&technical" class="{% if request.path == '/academic&technical' %}active{% endif %}">Academic & Technical</a>
-      <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
       <a href="/projects" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a>
       <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
       <div class="toggle-wrapper">

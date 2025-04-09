@@ -1,0 +1,162 @@
+.academic-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.tab {
+    background: var(--bg);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.tab:hover {
+    background: rgba(0, 119, 181, 0.1); /* subtle blue hover effect */
+    color: var(--accent);
+    transform: scale(1.05);
+}
+
+.tab.active {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    text-align: left;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 1rem;
+    line-height: 2;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+.skills-grid div {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    transition: transform 0.3s ease;
+}
+
+.skills-grid div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.skills-grid i,
+.skills-grid img {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    height: 30px;
+}
+
+.exp-list {
+    padding-left: 1rem;
+    list-style: disc;
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+.vertical-timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 3rem; /* Gives room for the dot and line */
+    border-left: 3px solid var(--accent);
+}
+
+.vt-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 0.5rem;
+}
+
+.vt-dot {
+    position: absolute;
+    left: -1.4rem;
+    top: 0.5rem; /* adjusted to match h3 line */
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent);
+    border: 2px solid var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--accent); /* outer ring */
+    z-index: 2;
+}
+
+.vt-content {
+    padding-left: 0; /* no padding so it starts aligned */
+}
+
+.vt-content h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+}
+
+.vt-sub {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: normal;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.vt-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}

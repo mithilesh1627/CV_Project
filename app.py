@@ -7,11 +7,7 @@ def home():
     return render_template('index.html')
 @app.route('/academic&technical')
 def academic():
-    return render_template("academic.html", title="Academic & Technical")
-
-@app.route('/about')
-def about():
-    return render_template("about.html")
+    return render_template("academic_technical.html", title="Academic & Technical")
 
 @app.route('/projects')
 def projects():
