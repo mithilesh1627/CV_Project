@@ -3,15 +3,23 @@
 {% block content %}
 <section class="hero">
     <div class="hero-content" data-aos="fade-up">
-    <h1 class="typewriter" >Hello, I’m <span class="highlight">Mithilesh Chaurasiya</span></h1>
-    <h2>Machine Learning Enthusiast & Developer</h2>
-    <p>I build intelligent systems and elegant UIs using Python, Flask, and ML tools.</p>
-    <div class="social-links">
-        <a href="https://github.com/mithilesh1627" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://linkedin.com/in/mithilesh1627" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <div class="profile-wrapper">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring static-ring"></div>
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile" class="profile-pic">
     </div>
-</div>
-
+        <h1 id="typewriter-text" class="typewriter"></h1>
+        <h2>Machine Learning Enthusiast & Developer</h2>
+        <p>
+            Aspiring ML Engineer / Data Scientist with 2.5 years of experience at Infosys as an ETL Tester in Data Engineering.
+            Hands-on experience in building and deploying deep learning models using Python, TensorFlow, Keras, and Streamlit.
+            Proficient in data handling with Pandas, NumPy, SQL, and NoSQL databases. Passionate about transforming complex data
+            problems into scalable, real-world solutions.
+        </p>
+        <div class="social-links">
+            <a href="https://github.com/mithilesh1627" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/mithilesh1627" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
     </div>
 </section>
 {% endblock %}

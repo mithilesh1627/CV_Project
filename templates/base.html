@@ -7,53 +7,48 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script>
-    if (localStorage.getItem("dark-mode") === "enabled") {
-        document.documentElement.classList.add("dark");
-    }
+      if (localStorage.getItem("dark-mode") === "enabled") {
+          document.documentElement.classList.add("dark");
+      }
     </script>
 </head>
 <body>
-    <header>
-    <nav>
-        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
-        <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
-        <a href="/projects" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a>
-        <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
-        <div class="toggle-wrapper">
-             <span class="toggle-label">Dark Mode</span>
-             <label class="switch">
-                <input type="checkbox" id="darkToggle">
-                <span class="slider round"></span>
-             </label>
-        </div>
-    </nav>
+<header>
+  <nav>
+      <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+      <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+      <a href="/projects" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a>
+      <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
+      <div class="toggle-wrapper">
+           <span class="toggle-label">Dark Mode</span>
+           <label class="switch">
+              <input type="checkbox" id="darkToggle">
+              <span class="slider round"></span>
+           </label>
+      </div>
+  </nav>
 </header>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-    <footer>
-        <p>© {{ 2025 }} Mithilesh Chaurasiya | made with Flask</p>
-    </footer>
+<footer>
+    <p>© {{ 2025 }} Mithilesh Chaurasiya | made with Flask</p>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true,
-  });
+  AOS.init({ duration: 1000, once: true });
 </script>
+
 <script>
   const toggle = document.getElementById("darkToggle");
   const html = document.documentElement;
-
-  // Set checkbox state on load
   if (localStorage.getItem("dark-mode") === "enabled") {
     toggle.checked = true;
   }
-
   toggle.addEventListener("change", () => {
     if (toggle.checked) {
       html.classList.add("dark");
@@ -64,14 +59,62 @@
     }
   });
 </script>
+
 <script>
-  // Wait until typing is done, then show second line
-  window.addEventListener('DOMContentLoaded', () => {
-    const secondLine = document.getElementById('second-line');
-    setTimeout(() => {
-      secondLine.classList.add('visible');
-    }, 3100); // Wait slightly more than typing duration (3s)
-  });
+  const phrases = [
+    "Hello, I’m <span class='highlight'>Mithilesh Chaurasiya</span>.",
+    "I_like_to_<span class='highlight'>Code.py</span>"
+  ];
+
+  let currentPhrase = 0;
+  let currentChar = 0;
+  let isDeleting = false;
+  const typewriter = document.getElementById("typewriter-text");
+
+  function getNextChar(phrase, index) {
+    if (phrase[index] === "<") {
+      // Get the full HTML tag
+      const endIdx = phrase.indexOf(">", index);
+      return {
+        text: phrase.slice(index, endIdx + 1),
+        nextIndex: endIdx + 1
+      };
+    }
+    return {
+      text: phrase[index],
+      nextIndex: index + 1
+    };
+  }
+
+  function type() {
+    const fullPhrase = phrases[currentPhrase];
+    let visible = "";
+    let i = 0;
+    let charCount = 0;
+
+    while (i < fullPhrase.length && charCount < currentChar) {
+      const { text, nextIndex } = getNextChar(fullPhrase, i);
+      visible += text;
+      if (!text.startsWith("<")) charCount++;
+      i = nextIndex;
+    }
+
+    typewriter.innerHTML = visible + "<span class='cursor'>|</span>";
+
+    if (!isDeleting && charCount < fullPhrase.replace(/<[^>]*>/g, "").length) {
+      currentChar++;
+      setTimeout(type, 100);
+    } else if (isDeleting && currentChar > 0) {
+      currentChar--;
+      setTimeout(type, 50);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) currentPhrase = (currentPhrase + 1) % phrases.length;
+      setTimeout(type, isDeleting ? 1000 : 1500);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
 </script>
 </body>
 </html>
