@@ -275,7 +275,7 @@ footer {
     position: relative;
     width: 180px;
     height: 180px;
-    margin: 0 auto 1rem;
+    margin: 0 auto 5rem;
 }
 
 .profile-pic {
@@ -305,8 +305,10 @@ footer {
 
 .static-ring {
     opacity: 1;
+    border: 2px solid var(--accent);
+    transform: scale(1.2); /* Make it slightly bigger than the profile image */
+    z-index: 0;
 }
-
 @keyframes pulse {
     0% {
         transform: scale(0.2);
@@ -316,4 +318,13 @@ footer {
         transform: scale(5.0);
         opacity: 0;
     }
+}
+.section-block {
+    margin-bottom: 3rem;
+}
+
+.custom-list {
+    list-style: disc;
+    margin-left: 1.5rem;
+    line-height: 1.8;
 }
