@@ -4,6 +4,13 @@
     --text: #111111;
     --accent: #0077b5;
     --border: #ddd;
+    --card-bg: #fff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --chip-bg: #e0e0e0;
+    --chip-text: #333;
+    --chip-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --link-color: #0077cc;
+    --hover-color: #005fa3;
 }
 
 .dark {
@@ -11,6 +18,14 @@
     --text: #f0f0f0;
     --accent: #66ccff;
     --border: #333;
+    --card-bg: #2c2c2c;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --chip-bg: #444;
+    --chip-text: #ddd;
+    --chip-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --link-color: #66b2ff;
+    --hover-color: #88ccff;
+
 }
 
 /* Reset & Base */
@@ -202,46 +217,6 @@ input:checked + .slider:before {
 
 .about-text {
     flex: 1;
-}
-
-/* Projects Section */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 1rem;
-}
-
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-.project-card {
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    background-color: var(--bg);
-    color: var(--text);
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-}
-
-.project-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 0.5rem;
 }
 
 /* Footer */
