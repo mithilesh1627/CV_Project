@@ -1,0 +1,94 @@
+/* Root section */
+#project-certifications {
+  padding: 2rem 1rem;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #333);
+}
+
+/* Section title styling (matches existing headings) */
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+/* === Project Cards === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #0056b3;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* === Certifications Section === */
+.certifications-section {
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+}
+
+.certifications-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.certifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.certifications-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.certifications-list li::before {
+  content: "🎓";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/project_certificate.css') }}">
+
+<div class="tab-content" id="projects-certifications" data-aos="fade-up">
+  <!-- Section Title -->
+  <h2 class="section-title" data-aos="fade-right">Projects & Certifications</h2>
+
+  <!-- ================== Projects Section ================== -->
+  <h3 class="sub-title" data-aos="fade-left">Projects</h3>
+  <div class="card-container">
+
+    <!-- Project 1 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+      <h4>BihariBlogger</h4>
+      <p>A social blogging platform built with Flask and MongoDB.</p>
+      <div class="tech-stack">
+        <span>Flask</span>
+        <span>MongoDB</span>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+      <h4>Sentiment Analysis of Customer Reviews</h4>
+      <p>Performed sentiment classification on customer feedback data.</p>
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>Scikit-learn</span>
+        <span>Pandas</span>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+      <h4>MockAnalysis</h4>
+      <p>Automated system for evaluating mock test results and generating analytics.</p>
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>Selenium</span>
+        <span>Pandas</span>
+        <span>Matplotlib</span>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+      <h4>Real-Time Gender Detection</h4>
+      <p>Used computer vision and CNN to predict gender from webcam input.</p>
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>TensorFlow</span>
+        <span>OpenCV</span>
+        <span>CNN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== Certifications Section ================== -->
+  <h3 class="sub-title" data-aos="fade-left" style="margin-top: 3rem;">Certifications</h3>
+  <div class="card-container">
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+      <h4>Accenture North America - Data Analytics and Visualization Job Simulation</h4>
+      <p>Credential ID: 2tG6WLM2W5Yv9jJ</p>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+      <h4>Infosys Certified Selenium with Python Automation Tester</h4>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+      <h4>Infosys Certified Software Development Engineer in Test (SDET)</h4>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="250">
+      <h4>Infosys Certified Digital Assurance Professional</h4>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="300">
+      <h4>Infosys Certified Python Programmer</h4>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="350">
+      <h4>Infosys Certified Data Management Associate</h4>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="400">
+      <h4>Machine Learning Foundations</h4>
+      <p>Issued by: Great Learning</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="450">
+      <h4>Computer Vision Essentials</h4>
+      <p>Issued by: Great Learning</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="cert-card" data-aos="fade-up" data-aos-delay="500">
+      <h4>Python for Machine Learning</h4>
+      <p>Issued by: Great Learning</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
+{% endblock %}

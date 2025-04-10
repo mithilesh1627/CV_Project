@@ -330,3 +330,56 @@ footer {
     margin-left: 1.5rem;
     line-height: 1.8;
 }
+/* 404 Page Styling */
+.error-page {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 2rem 1rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.error-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-page p {
+    font-size: 1rem;
+    color: var(--text);
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.error-page a {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: var(--accent);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.error-page a:hover {
+    background-color: #005fa3;
+    text-decoration: none;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

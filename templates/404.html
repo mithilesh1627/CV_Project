@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+  <section class="error-page">
+    <dotlottie-player
+      src="https://lottie.host/dd0bc5da-fc17-4aef-9954-20becb96c2c8/iKce7NKcIP.lottie"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    ></dotlottie-player>
+    <h2>Oops! Page Not Found</h2>
+    <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
+    <a href="{{ url_for('home') }}">Go Back Home</a>
+  </section>
+</body>
+</html>
