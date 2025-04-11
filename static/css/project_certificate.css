@@ -1,11 +1,11 @@
-/* Root section */
+/* Root Section */
 #projects-certifications {
   padding: 2rem 1rem;
   background-color: var(--bg);
   color: var(--text);
 }
 
-/* Section title */
+/* Section Titles */
 .section-title {
   font-size: 2rem;
   font-weight: 600;
@@ -14,7 +14,6 @@
   color: var(--text);
 }
 
-/* Sub section title */
 .sub-title {
   font-size: 1.5rem;
   font-weight: 500;
@@ -22,69 +21,28 @@
   color: var(--accent);
 }
 
-/* === Project Cards === */
+/* Project Cards */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-.project-card {
+.project-card,
+.expandable-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1.2rem;
   margin-bottom: 1.5rem;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: var(--card-shadow);
   cursor: pointer;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /* Prevent unexpected scrollbars but allow content */
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 5%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px); /* adds the blur effect */
-  -webkit-backdrop-filter: blur(6px); /* Safari support */
-}
-
-.modal-content {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-  margin: auto;
-  padding: 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: var(--card-shadow);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.close {
-  float: right;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-.project-card:hover {
+.project-card:hover,
+.expandable-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
@@ -101,10 +59,18 @@
   line-height: 1.5;
   color: var(--text);
 }
-
+.project-image {
+  width: 100%;              /* Make it scale with the container */
+  height: auto;             /* Maintain aspect ratio */
+  max-height: 200px;        /* Optional: control the card height */
+  object-fit: contain;      /* Ensure the full image fits in */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+}
 /* Tech Stack Chips */
 .tech-stack {
-  margin-top: 0. 5rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -116,17 +82,30 @@
   font-size: 0.8rem;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
-  box-shadow: var(--chip-shadow, 0 1px 2px rgba(0, 0, 0, 0.1));
+  box-shadow: var(--chip-shadow);
 }
-/* === Certification Cards === */
+
+/* Expandable Card Details */
+.project-details {
+  display: none;
+  margin-top: 0.8rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.expandable-card.active .project-details {
+  display: block;
+}
+
+/* Certification Cards */
 .cert-card {
   background-color: var(--card-bg);
   box-shadow: var(--card-shadow);
-  border: 1px solid var(--border, #e0e0e0);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: var(--card-shadow, 0 2px 6px rgba(0, 0, 0, 0.05));
 }
 
 .cert-card:hover {
@@ -156,35 +135,102 @@
   color: var(--hover-color);
 }
 
-.expandable-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: var(--card-shadow);
-  cursor: pointer;
-  margin-bottom: 1.5rem;
-}
-
-.expandable-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-.project-details {
+/* Modal Styling */
+.modal {
   display: none;
-  margin-top: 0.8rem;
-  color: var(--text-color);
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  position: fixed;
+  z-index: 999;
+  padding-top: 5%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-.expandable-card.active .project-details {
-  display: block;
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text);
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
 }
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.modal-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.modal-content .tech-used {
+  margin-top: 1rem;
+}
+
+.modal-content .tech-used span {
+  display: inline-block;
+  background-color: var(--chip-bg);
+  color: var(--chip-text);
+  padding: 0.4rem 0.75rem;
+  margin: 0.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  box-shadow: var(--chip-shadow);
+}
+
+/* Modal Close Button */
+.close {
+  color: var(--text);
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
   .card-container {
     grid-template-columns: 1fr;
   }
+}
+.tech-stack i {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tech-stack i:hover {
+  transform: scale(1.2);
 }

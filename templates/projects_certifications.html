@@ -1,33 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/project_certificate.css') }}">
-
 <div class="tab-content" id="projects-certifications" data-aos="fade-up">
   <h2 class="section-title" data-aos="fade-right">Projects & Certifications</h2>
-
+   <div class="tab-container">
+    <button class="tab-btn active" data-tab="projects-tab">Projects</button>
+    <button class="tab-btn" data-tab="certifications-tab">Certifications</button>
+  </div>
   <!-- ========== Projects Section ========== -->
   <h3 class="sub-title" data-aos="fade-left">Projects</h3>
   <div class="card-container">
     <!-- Project Cards -->
     <div class="project-card" onclick="openModal('modal1')" data-aos="fade-up" data-aos-delay="100">
       <h4>BihariBlogger</h4>
-      <div class="tech-stack">
-        <span>Flask</span><span>MongoDB</span>
-      </div>
+
     </div>
 
-    <div class="project-card" onclick="openModal('modal3')" data-aos="fade-up" data-aos-delay="300">
+    <div class="project-card" onclick="openModal('modal2')" data-aos="fade-up" data-aos-delay="300">
       <h4>MockAnalysis</h4>
-      <div class="tech-stack">
-        <span>Python</span><span>Selenium</span><span>Pandas</span><span>Matplotlib</span>
-      </div>
+        <div class="tech-stack">
+          photo lago idhar
+       </div>
     </div>
-
+    <div class="project-card" onclick="openModal('modal3')" data-aos="fade-up" data-aos-delay="400">
+      <h4>Gender Classification using CNN</h4>
+       photo lago idhar
+    </div>
     <div class="project-card" onclick="openModal('modal4')" data-aos="fade-up" data-aos-delay="400">
-      <h4>Gender Detection</h4>
-      <div class="tech-stack">
-        <span>Python</span><span>TensorFlow</span><span>OpenCV</span>
-      </div>
+      <h4>Heart Disease ML Model</h4>
+      <img src="{{ url_for('static', filename='images/heart_disease.png') }}" alt="Heart Disease ML Model" class="project-image" />
+      <strong>Live App:</strong>
+      <a href="https://mithilesh1627-pima-diabetes.streamlit.app/" target="_blank">
+        Launch on Streamlit
+      </a>
+    </div>
+  <div class="project-card" onclick="openModal('modal5')" data-aos="fade-up" data-aos-delay="400">
+      <h4>Diabetes Prediction ML Model</h4>
+      <img src="{{ url_for('static', filename='images/Diabetes.png') }}" alt="Heart Disease ML Model" class="project-image" />
+      <strong>Live App:</strong>
+      <a href="https://mithilesh1627-pima-diabetes.streamlit.app/" target="_blank">
+        Launch on Streamlit
+      </a>
     </div>
   </div>
 
@@ -37,32 +50,193 @@
   <div class="modal" id="modal1">
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal1')">&times;</span>
-      <h3>BihariBlogger</h3>
-      <p>A social blogging platform built using Flask and MongoDB, featuring user authentication and posting system.</p>
-      <a href="#" target="_blank">View on GitHub</a>
+      <h3>BihariBlogger – A Social Blogging Web App</h3>
+  <p><strong>Overview:<br></strong> BihariBlogger is a dynamic blogging platform that allows users to share their thoughts, connect through posts, and explore content from fellow bloggers. It is designed with scalability, usability, and modularity in mind using the Flask web framework and MongoDB for flexible document storage.</p>
+
+  <p><strong>Key Features:</strong></p>
+  <ul>
+    <li>User authentication with registration and login system using <code>Flask-Login</code>.</li>
+    <li>Clean and responsive UI built with HTML5, CSS3, and Bootstrap 5.</li>
+    <li>Write, edit, and delete blog posts with Markdown-style content support.</li>
+    <li>Contact and feedback form integration with email alerts (SMTP setup planned).</li>
+    <li>Each user has their own dashboard with a personalized list of authored blogs.</li>
+    <li>MongoDB backend for flexible schema design and fast CRUD operations.</li>
+  </ul>
+<br>
+  <p><strong>Technical Stack:</strong></p>
+  <ul>
+    <li><strong>Backend:</strong> Flask, Flask-PyMongo, Flask-WTF, Flask-Login</li>
+    <li><strong>Frontend:</strong> HTML, CSS, Bootstrap 5, Jinja2 templating</li>
+    <li><strong>Database:</strong> MongoDB (NoSQL) via PyMongo</li>
+    <li><strong>Additional Tools:</strong> Jinja2, WTForms for form validation, Flask’s `url_for` and Blueprints for modular routing</li>
+  </ul>
+<br>
+  <p><strong>Challenges Overcome:</strong></p>
+  <ul>
+    <li>Handled CSRF protection and form validation using Flask-WTF.</li>
+    <li>Designed RESTful routes and maintained session-based authentication with Flask-Login.</li>
+    <li>Built a modular file structure separating routes, forms, and templates for clean scalability.</li>
+  </ul>
+<br>
+  <p><strong>Future Improvements:</strong></p>
+  <ul>
+    <li>Implement user avatars and profile bios</li>
+    <li>Allow liking and commenting on posts</li>
+    <li>Add category filtering and search functionality</li>
+    <li>Enable email notifications and password reset flows</li>
+  </ul>
+<br>
+  <p><strong>GitHub:</strong> <a href="https://github.com/mithilesh1627/BihariBlogger" target="_blank">View Repository</a></p>
+
+      <div class="tech-stack">
+        <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
+        <i class="devicon-flask-original-wordmark colored" title="Flask">Flask</i>&nbsp;
+        <i class="devicon-mongodb-plain colored" title="MongoDB">MongoDB</i>&nbsp;
+        <i class="devicon-html5-plain colored" title="HTML">HTML</i>&nbsp;
+        <i class="devicon-css3-plain colored" title="CSS">CSS</i>&nbsp;
+        <i class="devicon-bootstrap-plain colored" title="Bootstrap">Bootstrap</i>
+      </div>
     </div>
   </div>
 
 
   <!-- Modal 3 -->
-  <div class="modal" id="modal3">
+  <div class="modal" id="modal2">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
       <h3>MockAnalysis</h3>
-      <p>Automated extraction and analysis of mock test data. Generates trends, insights, and performance visualizations.</p>
-      <a href="#" target="_blank">Explore Analysis</a>
+      <div class="project-screenshot" style="margin-top: 1.5rem;">
+      </div>
+      <p>
+      The <strong>MockAnalysisProject</strong> is a smart automation tool built to extract, clean, and analyze students' mock test performance data from an online educational platform. This project was designed to automate the repetitive process of manual result tracking and enable insightful analysis for academic performance monitoring.
+    </p>
+    <p>
+      The system uses <strong>Selenium</strong> to programmatically interact with the test portal, including logging in, navigating result pages, and extracting structured data. Once collected, the data is cleaned and processed using <strong>Pandas</strong> for tabular transformation and aggregation.
+    </p>
+    <p>
+      The tool is highly customizable and can be adapted to work with different institutional platforms that follow structured formats.
+    </p>
+      <p style="margin-top: 1rem;">
+      GitHub: <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/MockAnalysisProject" target="_blank" style="color: var(--link-color); text-decoration: underline;">
+        View Repository
+      </a>
+    </p>
+      <div class="tech-stack">
+          <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
+          <i class="devicon-pandas-plain" title="Pandas">Pandas</i>&nbsp;
+          <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>&nbsp;
+          <i class="devicon-opencv-plain colored" title="OpenCV">OpenCV</i>&nbsp;
+          <i class="devicon-selenium-original colored" title="Selenium">Selenium</i>&nbsp;
+      </div>
     </div>
   </div>
 
-  <!-- Modal 4 -->
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+     <h3>Gender Classification using CNN</h3>
+       <div class="project-screenshot" style="margin-top: 1.5rem;">
+      </div>
+    <p>
+      This project focuses on building a deep learning-based model that classifies a person's gender from facial images. It utilizes <strong>Convolutional Neural Networks (CNNs)</strong> to learn intricate facial features for high-accuracy predictions.
+    </p>
+    <p>
+      A dataset of over <strong>3,000+ labeled facial images</strong> was cleaned and preprocessed (resized, normalized, and augmented) before being fed into the CNN. The model was trained and fine-tuned to detect and classify gender with over <strong>87.8% accuracy</strong>.
+    </p>
+    <p>
+      Real-time face detection was integrated using <strong>OpenCV</strong>, enabling live predictions directly from a webcam. This significantly enhances the model’s practical usability for real-world applications like demographic analysis and personalization engines.
+    </p>
+    <p>
+      Additional improvements were achieved by experimenting with different kernel sizes, dropout layers, and batch normalization to reduce overfitting and improve generalization.
+    </p>
+       <p style="margin-top: 1rem;">
+      GitHub: <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/MockAnalysisProject" target="_blank" style="color: var(--link-color); text-decoration: underline;">
+        View Repository
+      </a>
+    </p>
+      <div class="tech-stack">
+          <i class="devicon-python-plain colored" title="Python">Python</i>
+          <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
+          <i class="devicon-tensorflow-original colored" title="TensorFlow">TensorFlow</i>
+          <i class="devicon-keras-plain " title="Keras">Keras</i>
+          <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
+          <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
+          <i class="devicon-matplotlib-plain colored" title="Matplotlib">Matplotlib</i>
+          <i class="devicon-opencv-plain colored" title="OpenCV">OpenCV</i>
+      </div>
+    </div>
+  </div>
+                                  <!--Modal 4-->
   <div class="modal" id="modal4">
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal4')">&times;</span>
-      <h3>Real-Time Gender Detection</h3>
-      <p>Built a real-time gender detection system using deep learning with CNN and OpenCV webcam feed.</p>
-      <a href="#" target="_blank">Demo Video</a>
+      <h3>Heart Disease Prediction</h3>
+    <p>
+      A machine learning-based diagnostic tool that predicts the presence of heart disease using clinical data such as age, sex, chest pain type, resting blood pressure, cholesterol levels, and other health indicators.
+    </p>
+    <ul>
+      <li>Performed data preprocessing, feature selection, and model training using <strong>Logistic Regression, Random Forest</strong>, and <strong>Support Vector Machines</strong>.</li>
+      <li>Implemented extensive <strong>exploratory data analysis (EDA)</strong> and understand correlations and feature importance.</li>
+      <li>Evaluated models using confusion matrix, ROC-AUC, precision, recall, and F1-score, achieving an accuracy of <strong>~86%</strong>.</li>
+      <li><strong>Deployed</strong> the application using <strong>Streamlit</strong> for an intuitive and interactive web interface.</li>
+    </ul>
+    <br>
+     <p>
+      <strong>GitHub:</strong>
+      <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/Heart%20Disease%20Prediction" target="_blank">
+        View Repository
+      </a><br>
+      <strong>Live App:</strong>
+      <a href="https://diabetespredictmodel1627.streamlit.app/" target="_blank">
+        Launch on Streamlit
+      </a>
+    </p>
+    <img src="{{ url_for('static', filename='img/heart_prediction_ui.png') }}" alt="Heart Disease UI" style="width: 100%; margin-top: 1rem; border-radius: 10px;">
+      <div class="tech-used">
+        <i class="devicon-python-plain colored" title="Python">Python</i>
+        <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
+        <i class="devicon-pandas-original colored" title="Pandas">Pandas</i>
+        <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
+        <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
+        <i class="devicon-streamlit-plain " title="Streamlit">Streamlit</i>
     </div>
   </div>
+  </div>
+                                    <!--Modal 5-->
+   <div class="modal" id="modal5">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <h3>PIMA Diabetes Prediction</h3>
+    <p>
+      Built a predictive ML tool using the <strong>PIMA Indian Diabetes dataset</strong> to identify the likelihood of diabetes in female patients based on medical and lifestyle data such as glucose level, BMI, insulin level, and age.
+    </p>
+    <ul>
+      <li>Utilized <strong>Logistic Regression, K-Nearest Neighbors, Decision Trees</strong>, and ensemble techniques for improved model performance.</li>
+      <li>Applied <strong>data normalization and feature scaling</strong> to handle wide-ranging feature values.</li>
+      <li>Conducted EDA and plotted histograms, pair plots, and correlation matrices for feature insights.</li>
+      <li>Achieved an accuracy of <strong>~82%</strong> and deployed it as an interactive web app using <strong>Streamlit</strong>.</li>
+    </ul>
+      <br>
+       <p>
+      <strong>GitHub:</strong>
+      <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/PIMA%20Diabetes%20Prediction" target="_blank">
+        View Repository
+      </a><br>
+    </p>
+    <img src="{{ url_for('static', filename='img/pima_diabetes_ui.png') }}" alt="PIMA Diabetes UI" style="width: 100%; margin-top: 1rem; border-radius: 10px;">
+
+  <div class="tech-used">
+    <i class="devicon-python-plain colored" title="Python">Python</i>
+        <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
+        <i class="devicon-pandas-original colored" title="Pandas">Pandas</i>
+        <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
+        <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
+        <i class="devicon-streamlit-plain " title="Streamlit">Streamlit</i>
+      </div>
+  </div>
+  </div>
+
+
 
   <!-- ========== Certifications Section ========== -->
   <h3 class="sub-title" data-aos="fade-left" style="margin-top: 3rem;">Certifications</h3>
