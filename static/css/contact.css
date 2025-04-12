@@ -1,0 +1,126 @@
+/* Basic contact form styles */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.form-container {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+.form-container h2 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.submit-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.success-message, .flash-message {
+  background: var(--success-bg);
+  color: var(--success-text);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info a {
+  color: var(--primary);
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .contact-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-container, .contact-info {
+    width: 48%;
+  }
+
+  .contact-info {
+    text-align: left;
+    padding: 2rem;
+  }
+}
+.toast-success {
+  visibility: hidden;
+  min-width: 280px;
+  background-color: var(--success-bg, #4BB543);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 16px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s, top 0.5s ease;
+}
+
+.toast-success.show {
+  visibility: visible;
+  opacity: 1;
+  top: 30px;
+}
