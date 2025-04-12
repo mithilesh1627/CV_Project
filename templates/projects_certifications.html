@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/project_certificate.css') }}">
-<div class="tab-content" id="projects-certifications" data-aos="fade-up">
-  <h2 class="section-title" data-aos="fade-right">Projects & Certifications</h2>
-   <div class="tab-container">
+<section id="projects-certifications">
+<h2 class="section-title" data-aos="fade-right">Projects & Certifications</h2>
+<div class="tab-container">
     <button class="tab-btn active" data-tab="projects-tab">Projects</button>
     <button class="tab-btn" data-tab="certifications-tab">Certifications</button>
   </div>
   <!-- ========== Projects Section ========== -->
-  <h3 class="sub-title" data-aos="fade-left">Projects</h3>
+
   <div class="card-container">
     <!-- Project Cards -->
+     <div class="tab-content active" id="projects-tab">
+       <div class="card-container">
     <div class="project-card" onclick="openModal('modal1')" data-aos="fade-up" data-aos-delay="100">
       <h4>BihariBlogger</h4>
-
     </div>
 
     <div class="project-card" onclick="openModal('modal2')" data-aos="fade-up" data-aos-delay="300">
@@ -42,6 +43,8 @@
         Launch on Streamlit
       </a>
     </div>
+  </div>
+  </div>
   </div>
 
   <!-- ========== Modal Windows ========== -->
@@ -239,7 +242,7 @@
 
 
   <!-- ========== Certifications Section ========== -->
-  <h3 class="sub-title" data-aos="fade-left" style="margin-top: 3rem;">Certifications</h3>
+  <div class="tab-content" id="certifications-tab">
   <div class="card-container">
     <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
       <h4>Accenture North America - Data Analytics and Visualization Job Simulation</h4>
@@ -294,12 +297,8 @@
     <h4>Infosys Certified Data Management Associate</h4>
     </div>
   </div>
-
-
-
-
-
 </div>
+</section>
 
 <!-- AOS -->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
