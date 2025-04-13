@@ -105,6 +105,15 @@
   margin-bottom: 0.5rem;
   color: var(--link-color, #0056b3);
 }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
 
 .project-card p {
   font-size: 0.95rem;

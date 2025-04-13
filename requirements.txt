@@ -1,1 +1,5 @@
 flask
+gunicorn
+dnspython
+python-dotenv
+requests
