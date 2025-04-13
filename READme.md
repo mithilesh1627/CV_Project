@@ -8,7 +8,7 @@ Welcome to my personal portfolio built with **Flask** and designed to showcase:
 - 🌙 Dark theme-first, mobile responsive layout  
 - 💡 Interactive skill charts and experience highlights
 
-🟢 **Live Site**: [https://mithilesh-cv.onrender.com/](https://mithilesh-cv.onrender.com/)
+🟢 **Live Site**: [https://mithileshcv.up.railway.app/](https://mithileshcv.up.railway.app/)
 
 ## 🛠️ Tech Stack
 - Python, Flask, Jinja2
