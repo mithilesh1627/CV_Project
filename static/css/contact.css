@@ -103,24 +103,116 @@ input:focus, textarea:focus {
     padding: 2rem;
   }
 }
-.toast-success {
-  visibility: hidden;
-  min-width: 280px;
-  background-color: var(--success-bg, #4BB543);
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 16px;
+.toast {
   position: fixed;
   top: 20px;
   right: 20px;
+  background-color: var(--toast-bg, #28a745);
+  color: var(--toast-color, #fff);
+  padding: 15px 20px;
+  border-radius: 5px;
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.5s, top 0.5s ease;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.toast-success.show {
-  visibility: visible;
+.toast.show {
   opacity: 1;
-  top: 30px;
+  transform: translateY(0);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .toast {
+  --toast-bg: #4caf50;
+  --toast-color: #ffffff;
+}
+.contact-section .form-container {
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === INPUT FOCUS GLOW === */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid var(--border-color, #ccc);
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  background-color: var(--input-bg, #fff);
+  color: var(--input-color, #000);
+}
+
+input:focus,
+textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* === LABEL FLOATING === */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 12px;
+  font-size: 12px;
+  color: #4caf50;
+  background-color: var(--input-bg, #fff);
+  padding: 0 5px;
+}
+
+/* === Submit Button Animation === */
+.submit-btn {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 14px rgba(76, 175, 80, 0.4);
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+/* === Dark Mode Support === */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  --input-bg: #1e1e1e;
+  --input-color: #eee;
+  --border-color: #555;
 }

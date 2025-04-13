@@ -7,9 +7,9 @@
     <h2>Contact Me</h2>
 
     <!-- Toast Message -->
-    <div id="toast" class="toast-success {% if success %}show{% endif %}">
-      ✅ Thank you! Your message has been sent.
-    </div>
+    <div id="toast" class="toast success-toast">
+  ✅ Thank you! Your message has been sent.
+</div>
 
     <!-- Flash Errors -->
     {% with messages = get_flashed_messages() %}
@@ -24,18 +24,18 @@
 
     <form method="POST" action="/contact" id="contact-form">
       <div class="form-group">
+        <input required type="text" id="name" name="name" placeholder=" " pattern="[A-Za-z ]{2,}">
         <label for="name">Name</label>
-        <input required type="text" id="name" name="name" placeholder="Your Name" pattern="[A-Za-z ]{2,}" title="Enter a valid name">
       </div>
 
       <div class="form-group">
+         <input required type="email" id="email" name="email" placeholder=" ">
         <label for="email">Email</label>
-        <input required type="email" id="email" name="email" placeholder="Your Email">
       </div>
 
       <div class="form-group">
+        <textarea required id="message" name="message" rows="5" placeholder=" "></textarea>
         <label for="message">Message</label>
-        <textarea required id="message" name="message" rows="5" placeholder="Your Message"></textarea>
       </div>
 
       <!-- reCAPTCHA -->
@@ -57,18 +57,6 @@
 </section>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-<!-- Toast Animation -->
-<script>
-  window.onload = function () {
-    const toast = document.getElementById("toast");
-    if (toast && toast.classList.contains("show")) {
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 4000);
-    }
-  };
-</script>
 
 <!-- JS Validation -->
 <script>
@@ -98,6 +86,46 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
     return;
   }
 });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        // Show toast immediately on click
+        showToast("⏳ Submitting your message...");
+
+        // Toast disappears after 3 seconds
+        setTimeout(() => {
+          hideToast();
+        }, 3000);
+      });
+    }
+
+    // Show success toast if server rendered it
+    {% if success %}
+    showToast("✅ Message sent successfully!");
+    setTimeout(() => {
+      hideToast();
+    }, 4000);
+    {% endif %}
+  });
+
+  function showToast(message) {
+    let toast = document.createElement("div");
+    toast.className = "toast show";
+    toast.innerText = message;
+    document.body.appendChild(toast);
+  }
+
+  function hideToast() {
+    const toast = document.querySelector(".toast");
+    if (toast) {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }
+  }
 </script>
 
 {% endblock %}

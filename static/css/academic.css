@@ -56,42 +56,6 @@
     padding-left: 1rem;
     line-height: 2;
 }
-.skills-labels {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  color: #444;
-}
-
-.skills-labels span {
-  background: #e7f1ff;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  font-size: 1rem;
-}
-
-.skills-grid div {
-  background: #f9f9f9;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.2s ease-in-out;
-}
-
-.skills-grid div:hover {
-  background-color: #e0f0ff;
-}
 
 .exp-list {
     padding-left: 1rem;
@@ -167,4 +131,12 @@
     display: flex;
     align-items: center;
     gap: 0.3rem;
+}
+.tab button {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tab button:hover {
+  transform: scale(1.2); /* Slight zoom */
+  color: var(--highlight-color); /* Change to your theme's highlight color */
 }

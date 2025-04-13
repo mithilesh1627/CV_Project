@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/academic.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css">
+<!--<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />-->
 
+<script src="{{ url_for('static', filename='js/skills.js') }}"></script>
 <div class="academic-container">
   <h1 data-aos="fade-down">Academic & Technical Overview</h1>
 
@@ -56,82 +60,6 @@
     </div>
   </div>
 </div>
-<div class="tab-content" id="skills" data-aos="fade-up">
-  <!-- Skill Labels -->
-  <div class="skills-labels">
-    <span>Programming</span>
-    <span>ML & Data</span>
-    <span>Big Data</span>
-    <span>Cloud & MLOps</span>
-    <span>Automation & Tools</span>
-  </div>
-
-  <!-- Skill Grid -->
-  <div class="skills-grid">
-
-    <!-- Programming Languages -->
-    <div title="Primary language for ML, scripting, and backend">
-      <i class="fab fa-python"></i> Python
-    </div>
-    <div title="Object-oriented programming and backend logic">
-      <i class="fab fa-java"></i> Java
-    </div>
-
-    <!-- ML & Data Libraries -->
-    <div title="Numerical computing with arrays and matrices">
-      <img src="/static/icons/numpy.png"> NumPy
-    </div>
-    <div title="Data manipulation and analysis">
-      <img src="/static/icons/pandas.svg"> Pandas
-    </div>
-    <div title="Machine learning algorithms and preprocessing">
-      <img src="/static/icons/sklearn.svg"> Scikit-learn
-    </div>
-    <div title="Deep learning framework for building ML models">
-      <img src="/static/icons/tensorflow.svg"> TensorFlow
-    </div>
-    <div title="High-level neural network API running on top of TensorFlow">
-      <img src="/static/icons/keras.svg"> Keras
-    </div>
-    <div title="Interactive environment for writing and running code">
-      <img src="/static/icons/jupyter.svg"> Jupyter Notebook
-    </div>
-
-    <!-- Web Framework -->
-    <div title="Backend development for ML model deployment">
-      <img src="/static/icons/flask.svg"> Flask
-    </div>
-
-    <!-- Databases & Big Data -->
-    <div title="Relational database management">
-      <i class="fas fa-database"></i> MySQL
-    </div>
-    <div title="NoSQL database for unstructured data">
-      <img src="/static/icons/mongodb.svg"> MongoDB
-    </div>
-    <div title="Distributed big data processing">
-      <img src="/static/icons/spark.svg"> PySpark
-    </div>
-
-    <!-- Cloud & MLOps -->
-    <div title="Cloud platform for ML model deployment">
-      <img src="/static/icons/azure.svg"> Azure ML
-    </div>
-    <div title="Version control and collaboration">
-      <i class="fab fa-github"></i> GitHub
-    </div>
-
-    <!-- Automation & Tools -->
-    <div title="Web testing and automation">
-      <img src="/static/icons/selenium.svg"> Selenium
-    </div>
-    <div title="API testing and data validation">
-      <img src="/static/icons/postman.svg"> Postman
-    </div>
-
-  </div>
-</div>
-
   <div class="tab-content" id="experience" data-aos="fade-up">
   <h2 data-aos="fade-down">Professional Experience</h2>
 
@@ -173,11 +101,235 @@
   </li>
 </ul>
 </div>
+  <div class="tab-content" id="skills" data-aos="fade-up">
+    <div class="skills-grid">
+          <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-python-plain" title="Python"></i>
+                <span class="percentage">85%</span>
+              </div>
+            </div>
 
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-java-plain" title="Java"></i>
+                <span class="percentage">50%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-tensorflow-original" title="TensorFlow"></i>
+                <span class="percentage">50%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-numpy-original" title="Numpy"></i>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
 
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-pandas-original" title="Pandas"></i>
+                <span class="percentage">85%</span>
+              </div>
+            </div>
 
+<!--            <div class="skill" data-level="90">-->
+<!--              <div class="icon-wrapper">-->
+<!--                <i class="devicon-scikit-learn-plain colored" title="Sklearn"></i>-->
+<!--                <span class="percentage">90%</span>-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-matplotlib-plain" title="Matplotlib"></i>
+                <span class="percentage">30%</span>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-flask-original" title="Flask"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-keras-plain" title="Keras"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-opencv-plain" title="OpenCV"></i>
+                <span class="percentage">50%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-postman-plain" title="Postman"></i>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-railway-line" title="Railway"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-streamlit-plain" title="Streamlit"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-hadoop-plain" title="Hadoop"></i>
+                <span class="percentage">40%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-apachespark-plain" title="Apache Spark"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+<!--            <div class="skill">-->
+<!--              <div class="icon-wrapper">-->
+<!--                <i class="devicon-apachekafka-original" title="Kafka"></i>-->
+<!--                <span class="percentage">30%</span>-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-jenkins-line" title="Jenkins"></i>
+                <span class="percentage">40%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-sqldeveloper-plain" title="SQL Developer"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-oracle-original" title="Oracle"></i>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-mysql-plain" title="MySQL"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-mongodb-plain" title="MongoDB"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-azure-plain" title="Azure"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-github-original" title="GitHub"></i>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-selenium-original" title="Selenium"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-kaggle-original" title="Kaggle"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-jupyter-plain" title="Jupyter Notebook"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-linux-plain" title="Linux"></i>
+                <span class="percentage">30%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-html5-plain" title="HTML"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
+          </div>
+  </div>
 </div>
+<script>
+  document.querySelectorAll(".skills-grid div").forEach(skill => {
+    skill.addEventListener("click", () => {
+      const existing = skill.querySelector(".comfort-level");
+      if (existing) {
+        existing.remove(); // Toggle off
+      } else {
+        const level = skill.getAttribute("data-level") || "Intermediate"; // fallback
+        const tag = document.createElement("span");
+        tag.className = "comfort-level";
+        tag.innerText = level;
+        skill.appendChild(tag);
+      }
+    });
+  });
 
+  // Filter functionality for skills
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('.skills-grid .skill').forEach(skill => {
+            if (skill.classList.contains(filter) || filter === 'all') {
+                skill.style.display = 'block';
+            } else {
+                skill.style.display = 'none';
+            }
+        });
+    });
+  });
+
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // Remove 'active' class from tabs and contents
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => {
+        c.classList.remove("active", "fade-in");
+      });
+
+      // Add 'active' class to the clicked tab and corresponding content
+      tab.classList.add("active");
+      const target = document.getElementById(tab.dataset.tab);
+      target.classList.add("active", "fade-in");
+    });
+  });
+</script>
 <script>
   const tabs = document.querySelectorAll(".tab");
 const contents = document.querySelectorAll(".tab-content");
