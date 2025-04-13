@@ -108,10 +108,53 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
-
+}
 .skill:hover img {
   filter: blur(1.5px); /* Apply blur on hover to the image */
 }
 .skill img[title] {
   filter: none;  /* No blur effect on title */
+}
+@media (max-width: 768px) {
+  .skill {
+    flex: 0 1 100px;
+  }
+
+  .skill .icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill i,
+  .skill img {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill .percentage {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill {
+    flex: 0 1 80px;
+  }
+
+  .skill .icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill i,
+  .skill img {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill .percentage {
+    font-size: 12px;
+  }
 }

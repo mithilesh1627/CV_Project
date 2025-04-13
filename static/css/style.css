@@ -387,3 +387,129 @@ footer {
         transform: translateY(0);
     }
 }
+.btn-download-cv {
+  background-color: #007BFF; /* Blue background */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and transform */
+}
+
+.btn-download-cv:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* --- Responsive Enhancements --- */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .about-container {
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+    }
+
+    .profile-wrapper {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .hero {
+        padding: 2rem 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .toggle-wrapper {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .profile-wrapper {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 0.85rem;
+    }
+
+    .profile-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 3rem;
+    }
+
+    .error-page h2 {
+        font-size: 1.6rem;
+    }
+
+    .error-page p {
+        font-size: 0.95rem;
+    }
+
+    .btn-download-cv {
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+
+    .social-links a {
+        margin: 0 0.3rem;
+    }
+}

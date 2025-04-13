@@ -22,11 +22,7 @@
       <a href="/academic_technical" class="{% if request.path == '/academic_technical' %}active{% endif %}">Academic & Technical</a>
       <a href="/projects_certifications" class="{% if request.path == '/projects_certifications' %}active{% endif %}">Projects & Certifications</a>
       <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
-      <div class="toggle-wrapper">
-           <span class="toggle-label">Dark Mode</span>
-           <label class="switch">
-              <input type="checkbox" id="darkToggle">
-              <span class="slider round"></span>
+
            </label>
       </div>
   </nav>
@@ -46,26 +42,15 @@
 </script>
 
 <script>
-  const toggle = document.getElementById("darkToggle");
-  const html = document.documentElement;
-  if (localStorage.getItem("dark-mode") === "enabled") {
-    toggle.checked = true;
-  }
-  toggle.addEventListener("change", () => {
-    if (toggle.checked) {
-      html.classList.add("dark");
-      localStorage.setItem("dark-mode", "enabled");
-    } else {
-      html.classList.remove("dark");
-      localStorage.setItem("dark-mode", "disabled");
-    }
-  });
-</script>
-
-<script>
   const phrases = [
     "Hello, I’m <span class='highlight'>Mithilesh Chaurasiya</span>.",
-    "I_like_to_<span class='highlight'>Code.py</span>"
+    "I_like_to_<span class='highlight'>Code.py</span>",
+    "<span class='highlight'>ML Developer </span>|<span class='highlight'> Data Science </span>|<span class='highlight'> Big Data Engineer</span>",
+    "<span class='highlight'>Machine Learning Enthusiast, Developer</span>.",
+    "Solving real-world problems through <span class='highlight'>AI & Data</span>.",
+    "I love <span class='highlight'>Travelling</span> and <span class='highlight'>Photography</span>."
+
+
   ];
 
   let currentPhrase = 0;

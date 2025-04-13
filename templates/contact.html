@@ -105,7 +105,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
     // Show success toast if server rendered it
     {% if success %}
-    showToast("✅ Message sent successfully!");
+    showToast("✅ Message sent successfully! Please check your inbox/spam folder");
     setTimeout(() => {
       hideToast();
     }, 4000);

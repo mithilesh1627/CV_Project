@@ -190,7 +190,10 @@ textarea:focus {
   background-color: var(--input-bg, #fff);
   padding: 0 5px;
 }
-
+.form-group input,
+.form-group textarea {
+  padding-top: 1.6rem; /* To accommodate floating label */
+}
 /* === Submit Button Animation === */
 .submit-btn {
   background: linear-gradient(135deg, #4caf50, #388e3c);

@@ -140,3 +140,51 @@
   transform: scale(1.2); /* Slight zoom */
   color: var(--highlight-color); /* Change to your theme's highlight color */
 }
+/* Responsive adjustments for tablets and mobiles */
+@media (max-width: 768px) {
+    .academic-container {
+        padding: 2rem 1rem;
+    }
+
+    .tab {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .vt-content h3 {
+        font-size: 1rem;
+    }
+
+    .vt-sub,
+    .vt-date {
+        font-size: 0.8rem;
+    }
+
+    .vertical-timeline {
+        padding-left: 2rem;
+    }
+
+    .vt-dot {
+        left: -1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+
+    .vt-content h3 {
+        font-size: 0.95rem;
+    }
+
+    .vt-sub,
+    .vt-date {
+        font-size: 0.75rem;
+    }
+}

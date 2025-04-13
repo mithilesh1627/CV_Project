@@ -40,12 +40,14 @@ def send_email():
                     server.sendmail(sender_email, receiver_email, full_email)
 
                     # Send confirmation email to user
-                    confirmation_subject = "Thanks for contacting me!"
+                    confirmation_subject = "Thank You for Contacting Mithilesh"
                     confirmation_body = (
-                        f"Hi {name},\n\n"
-                        "Thanks for reaching out via my portfolio site. "
-                        "I'll get back to you as soon as I can.\n\n"
-                        "Regards,\nMithilesh"
+                        f"Dear {name},\n\n"
+                        "Thank you for reaching out through Mithilesh Chaurasiya's portfolio website. "
+                        "Your message has been received, and he will get back to you at the earliest convenience.\n\n"
+                        "Best regards,\n"
+                        "BihariJarvis\n"
+                        "Assistant to Mithilesh Chaurasiya"
                     )
                     confirmation_email = f"Subject: {confirmation_subject}\n\n{confirmation_body}"
                     server.sendmail(sender_email, email, confirmation_email)

@@ -5,7 +5,7 @@
   color: var(--text);
 }
 
-/* Section Titles */
+/* Titles */
 .section-title {
   font-size: 2rem;
   font-weight: 600;
@@ -20,12 +20,14 @@
   margin-bottom: 1rem;
   color: var(--accent);
 }
+
+/* Tabs */
 .tab-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .tab-btn {
@@ -40,16 +42,13 @@
   box-shadow: var(--chip-shadow);
 }
 
-.tab-btn:hover {
-  background-color: var(--primary-color);
-  color: #fff;
-}
-
+.tab-btn:hover,
 .tab-btn.active {
   background-color: var(--primary-color);
   color: #fff;
 }
 
+/* Tab Content */
 .tab-content {
   display: none;
   animation: fadeIn 0.4s ease-in-out;
@@ -59,82 +58,75 @@
   display: block;
 }
 
-/* Project Cards */
+/* Project & Certification Cards Grid */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-
 }
 
-
-.project-card {
+/* Shared Card Styles */
+.project-card,
+.expandable-card,
+.cert-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1.2rem;
-  transition: all 0.3s ease;
   box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.expandable-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
-  box-shadow: var(--card-shadow);
-  cursor: pointer;
-  overflow: hidden; /* Prevent unexpected scrollbars but allow content */
 }
 
 .project-card:hover,
-.expandable-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+.expandable-card:hover,
+.cert-card:hover {
   transform: translateY(-5px);
-
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.project-card h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--link-color, #0056b3);
-}
+/* Project Card Layout */
 .project-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100%;
-  width: 100%;
 }
 
-.project-card p {
+.project-card h4,
+.cert-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--link-color, #0056b3);
+}
+
+.project-card p,
+.cert-card p {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--text);
 }
+
+/* Image Styling */
 .project-image {
-  width: 100%;              /* Make it scale with the container */
-  height: auto;             /* Maintain aspect ratio */
-  max-height: 200px;        /* Optional: control the card height */
-  object-fit: contain;      /* Ensure the full image fits in */
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
   border-radius: 8px;
   margin-bottom: 1rem;
   display: block;
 }
+
 /* Tech Stack Chips */
 .tech-stack {
-  margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  margin-top: 0.5rem;
+  justify-content: center;
 }
 
 .tech-stack span {
@@ -146,7 +138,18 @@
   box-shadow: var(--chip-shadow);
 }
 
-/* Expandable Card Details */
+/* Tech Icons */
+.tech-stack i {
+  font-size: 1.3rem;
+  margin-right: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.tech-stack i:hover {
+  transform: scale(1.25);
+}
+
+/* Expandable Project Card */
 .project-details {
   display: none;
   margin-top: 0.8rem;
@@ -159,33 +162,7 @@
   display: block;
 }
 
-/* Certification Cards */
-.cert-card {
-  background-color: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cert-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.cert-card h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: var(--text);
-}
-
-.cert-card p {
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
+/* Certification Card Links */
 .cert-card a {
   font-size: 0.9rem;
   color: var(--link-color);
@@ -196,7 +173,7 @@
   color: var(--hover-color);
 }
 
-/* Modal Styling */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -253,7 +230,7 @@
   box-shadow: var(--chip-shadow);
 }
 
-/* Modal Close Button */
+/* Modal Close */
 .close {
   color: var(--text);
   position: absolute;
@@ -285,13 +262,4 @@
   .card-container {
     grid-template-columns: 1fr;
   }
-}
-.tech-stack i {
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.tech-stack i:hover {
-  transform: scale(1.2);
 }
