@@ -35,16 +35,21 @@
     </div>
     <div class="project-card" onclick="openModal('modal1')" data-aos="fade-up" data-aos-delay="500">
       <h4>BihariBlogger</h4>
-      <img src="{{ url_for('static', filename='images/BihariBlogger3.png') }}" alt="BihariBlogger" class="project-image" />
+      <img src="{{ url_for('static', filename='images/BihariBlogger1.jpg') }}" alt="BihariBlogger" class="project-image" />
     </div>
 
     <div class="project-card" onclick="openModal('modal2')" data-aos="fade-up" data-aos-delay="300">
       <h4>MockAnalysis</h4>
           <img src="{{ url_for('static', filename='images/MockAnalysis_image.png') }}" alt="MockAnalysis" class="project-image" />
     </div>
-  </div>
-  </div>
-  </div>
+    <div class="project-card" onclick="openModal('modal6')" data-aos="fade-up" data-aos-delay="400">
+    <h4>Next Project in Progress</h4>
+    <img src="{{ url_for('static', filename='images/Next_Project_image.jpg') }}" alt="Next Project" class="project-image" />
+    </div>
+
+    </div>
+ </div>
+</div>
 
   <!-- ========== Modal Windows ========== -->
 
@@ -237,7 +242,13 @@
       </div>
   </div>
   </div>
-
+<!--     Modal6 -->
+     <div class="modal" id="modal6">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal6')">&times;</span>
+      <h3>Next Project in Progress</h3>
+    </div>
+  </div>
 
 
   <!-- ========== Certifications Section ========== -->
