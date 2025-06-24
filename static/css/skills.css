@@ -17,7 +17,8 @@
   width: 80px;  /* Increase the width to give space for progress circle */
   height: 80px; /* Same as width to make it a perfect circle */
   border-radius: 50%;
-   background-color: transparent;
+  background-color: transparent;
+
 }
 
 .skill i {
@@ -112,9 +113,7 @@
 .skill:hover img {
   filter: blur(1.5px); /* Apply blur on hover to the image */
 }
-.skill img[title] {
-  filter: none;  /* No blur effect on title */
-}
+
 @media (max-width: 768px) {
   .skill {
     flex: 0 1 100px;
@@ -147,8 +146,7 @@
     height: 50px;
   }
 
-  .skill i,
-  .skill img {
+  .skill i{
     font-size: 32px;
     width: 32px;
     height: 32px;
@@ -157,4 +155,10 @@
   .skill .percentage {
     font-size: 12px;
   }
+}
+.skill:hover img {
+  opacity: 0.1; 
+  color: black;
+  filter: blur(1.5px);
+  transition: all 0.3s ease;
 }
