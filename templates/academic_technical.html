@@ -2,8 +2,9 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/academic.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css">
-<!--<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />-->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css"> -->
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<!-- <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> -->
 
 <script src="{{ url_for('static', filename='js/skills.js') }}"></script>
 <div class="academic-container">
@@ -74,7 +75,8 @@
   to ensure high-quality data delivery. Verified data integrity using <strong>SQL</strong>, <strong>MongoDB</strong>, and <strong>Snowflake</strong>.
   Managed test cases and bug reports with <strong>Azure DevOps</strong>, and automated QA processes using <strong>Selenium</strong> and <strong>Excel macros</strong>.
   Deployed solutions via <strong>Jenkins</strong> and <strong>Microsoft Azure</strong>. Worked with <strong>Apache Spark</strong> for distributed processing.
-  Actively participated in sprint planning, reviews, and direct client communication.
+  Contributed to Agile/Scrum sprints as part of an 8-member engineering team, helping deliver 15 features on time; supported client interactions and incorporated
+  feedback into the development cycle.
 </p>
 
 <ul class="exp-list">
@@ -116,25 +118,36 @@
             </div>
             <div class="skill">
               <div class="icon-wrapper">
-                <i class="devicon-numpy-original" title="Numpy"></i>
+                <i class="devicon-pytorch-plain" title="PyTorch"></i>
+                <span class="percentage">50%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-numpy-plain" title="Numpy"></i>
                 <span class="percentage">70%</span>
               </div>
             </div>
 
             <div class="skill">
               <div class="icon-wrapper">
-                <i class="devicon-pandas-original" title="Pandas"></i>
+                <i class="devicon-pandas-plain" title="Pandas"></i>
                 <span class="percentage">85%</span>
               </div>
             </div>
 
-<!--            <div class="skill" data-level="90">-->
-<!--              <div class="icon-wrapper">-->
-<!--                <i class="devicon-scikit-learn-plain colored" title="Sklearn"></i>-->
-<!--                <span class="percentage">90%</span>-->
-<!--              </div>-->
-<!--            </div>-->
-
+           <div class="skill" data-level="90">
+             <div class="icon-wrapper">
+               <i class="devicon-scikitlearn-plain" title="Sklearn"></i>
+               <span class="percentage">90%</span>
+             </div>
+           </div>
+           <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-keras-plain" title="Keras"></i>
+                <span class="percentage">80%</span>
+              </div>
+            </div>
             <div class="skill">
               <div class="icon-wrapper">
                 <i class="devicon-matplotlib-plain" title="Matplotlib"></i>
@@ -150,25 +163,28 @@
             </div>
             <div class="skill">
               <div class="icon-wrapper">
-                <i class="devicon-keras-plain" title="Keras"></i>
-                <span class="percentage">80%</span>
-              </div>
-            </div>
-            <div class="skill">
-              <div class="icon-wrapper">
                 <i class="devicon-opencv-plain" title="OpenCV"></i>
-                <span class="percentage">50%</span>
+                <span class="percentage">40%</span>
               </div>
             </div>
+
             <div class="skill">
               <div class="icon-wrapper">
                 <i class="devicon-postman-plain" title="Postman"></i>
                 <span class="percentage">70%</span>
               </div>
             </div>
+
             <div class="skill">
               <div class="icon-wrapper">
-                <i class="devicon-railway-line" title="Railway"></i>
+                <i class="devicon-fastapi-plain" title="FastAPI"></i>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
+    
+            <div class="skill">
+              <div class="icon-wrapper">
+                <i class="devicon-railway-plain" title="Railway"></i>
                 <span class="percentage">60%</span>
               </div>
             </div>
@@ -181,14 +197,20 @@
             </div>
             <div class="skill">
               <div class="icon-wrapper">
+                <i class="devicon-apacheairflow-plain" title="AirFlow"></i>
+                <span class="percentage">60%</span>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="icon-wrapper">
                 <i class="devicon-hadoop-plain" title="Hadoop"></i>
-                <span class="percentage">40%</span>
+                <span class="percentage">30%</span>
               </div>
             </div>
             <div class="skill">
               <div class="icon-wrapper">
                 <i class="devicon-apachespark-plain" title="Apache Spark"></i>
-                <span class="percentage">60%</span>
+                <span class="percentage">40%</span>
               </div>
             </div>
 <!--            <div class="skill">-->
@@ -230,6 +252,16 @@
             </div>
             <div class="skill">
               <div class="icon-wrapper">
+                <img src="{{ url_for('static', filename='icons/snowflake-blue.svg') }}"
+         alt="Snowflake"
+         title="Snowflake"  
+         style="width: 70px; height: 70px; fill: #046fa9; filter: none;"/>
+                <span class="percentage">70%</span>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="icon-wrapper">
                 <i class="devicon-azure-plain" title="Azure"></i>
                 <span class="percentage">60%</span>
               </div>
@@ -244,12 +276,6 @@
               <div class="icon-wrapper">
                 <i class="devicon-selenium-original" title="Selenium"></i>
                 <span class="percentage">80%</span>
-              </div>
-            </div>
-            <div class="skill">
-              <div class="icon-wrapper">
-                <i class="devicon-kaggle-original" title="Kaggle"></i>
-                <span class="percentage">60%</span>
               </div>
             </div>
             <div class="skill">
@@ -324,7 +350,7 @@
 </script>
 <script>
   const tabs = document.querySelectorAll(".tab");
-const contents = document.querySelectorAll(".tab-content");
+  const contents = document.querySelectorAll(".tab-content");
 
 tabs.forEach(tab => {
   tab.addEventListener("click", () => {
