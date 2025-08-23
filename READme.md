@@ -14,6 +14,6 @@ Welcome to my personal portfolio built with **Flask** and designed to showcase:
 - Python, Flask, Jinja2
 - HTML5, CSS3 (with animations & dark theme)
 - JavaScript (for interactivity & modals)
-- Deployed via Render
+- Deployed via Railway
 
 Feel free to explore, fork, or connect!
