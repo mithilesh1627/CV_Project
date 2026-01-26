@@ -55,11 +55,11 @@ def send_email():
                 return render_template("contact.html", success=True,
                                        recaptcha_site_key=os.getenv("RECAPTCHA_SITE_KEY"))
             except Exception as e:
-                flash("❌ Something went wrong while sending the email. Please try again.")
+                flash(" Something went wrong while sending the email. Please try again.")
                 print(e)
                 return redirect(url_for("routes.send_email"))
         else:
-            flash("⚠️ reCAPTCHA validation failed. Try again.")
+            flash(" reCAPTCHA validation failed. Try again.")
             return redirect(url_for("routes.send_email"))
 
     return render_template("contact.html", success=False,
