@@ -51,7 +51,19 @@
             <h4>MockAnalysis</h4>
                 <img src="{{ url_for('static', filename='images/MockAnalysis_image.png') }}" alt="MockAnalysis" class="project-image" />
           </div>
-
+           
+            <div class="project-card" onclick="openModal('modal8')" data-aos="fade-up" data-aos-delay="700">
+            <h4>Production-Grade Smart Traffic Management System (AI + MLOps)</h4>
+            <img src="{{ url_for('static', filename='images/smart_traffic_system.png') }}" alt="Smart Traffic Management System" class="project-image" />
+            <strong>GitHub:</strong>
+            <a href="https://github.com/mithilesh1627/smart-traffic-management-system" target="_blank">
+              View Repository
+            </a>
+            <strong>Demo Video:</strong>
+            <a href="https://drive.google.com/file/d/1xmBCdNr5SF1Etrsip_3LKA1uowlMNEeN/view" target="_blank">
+              smart traffic demo video
+            </a>
+          </div>
           <div class="project-card" onclick="openModal('modal6')" data-aos="fade-up" data-aos-delay="600">
             <h4>Next Project in Progress</h4>
             <img src="{{ url_for('static', filename='images/Next_Project_image.jpg') }}" alt="Next Project" class="project-image" />
@@ -218,6 +230,99 @@
     </div>
   </div>
   </div>
+                                    <!--Model 8 -->
+    <div class="modal" id="modal8">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal8')">&times;</span>
+      <h3>Smart Traffic Management System (AI + MLOps)</h3>
+  <p><strong>Overview:<br></strong> End-to-End Computer Vision + MLOps Pipeline using YOLO, Airflow, MLflow & DVC A production-oriented smart traffic analytics system that performs vehicle detection, tracking, counting, and traffic flow analysis, orchestrated using Apache Airflow and fully versioned with DVC + MLflow.</p>
+
+  <p><strong>Key Features:</strong></p>
+  <ul>
+    <li> Vehicle Detection: YOLO-based real-time object detection.</li>
+    <li> Object Tracking: Persistent ID tracking across frames.</li>
+    <li> Traffic Metrics: Vehicle count, flow, density estimation.</li>
+    <li> Dataset Validation: Integrity checks & auto-labeling.</li>
+    <li>Experiment Tracking: MLflow logging & reproducibility.</li>
+    <li> Visualization: Streamlit dashboards</li>
+  </ul>
+<br>
+   <p><strong> Tech Stack:</strong></p>
+  <table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Tools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Computer Vision</td>
+      <td>YOLO (Ultralytics), OpenCV</td>
+    </tr>
+    <tr>
+      <td>Deep Learning</td>
+      <td>PyTorch</td>
+    </tr>
+    <tr>
+      <td>Workflow Orchestration</td>
+      <td>Apache Airflow</td>
+    </tr>
+    <tr>
+      <td>Experiment Tracking</td>
+      <td>MLflow</td>
+    </tr>
+    <tr>
+      <td>Dataset Versioning</td>
+      <td>DVC</td>
+    </tr>
+    <tr>
+      <td>Database</td>
+      <td>MongoDB</td>
+    </tr>
+    <tr>
+      <td>Visualization</td>
+      <td>Streamlit, Plotly</td>
+    </tr>
+    <tr>
+      <td>Language</td>
+      <td>Python</td>
+    </tr>
+  </tbody>
+</table>
+
+ <br>
+  <p><strong>Key Observations:</strong></p>
+  <ul>
+    <li>Car detection achieved excellent performance, making it highly reliable for vehicle counting and traffic flow estimation.</li>
+    <li>Bus and truck classes show strong detection accuracy, suitable for heavy-vehicle analytics.</li>
+    <li>Person detection performs well, enabling pedestrian density and safety analysis.</li>
+    <li>Motorbike detection shows moderate performance, mainly affected by small object size and occlusion.</li>
+    <li> When combined with multi-object tracking (ByteTrack / BoT-SORT), the effective accuracy improves significantly, ensuring stable real-world deployment.</li>
+  </ul>
+<br>
+  <p><strong>Future Improvements:</strong></p>
+  <ul>
+    <li> Multi-camera tracking.</li>
+    <li> Detect whether the driver is wearing a helmet and notify administrators via IoT (Raspberry Pi).</li>
+    <li> Vehicle re-identification.</li>
+    <li> Number plate recognition.</li>
+    <li> Detection of traffic rule violations.</li>
+    <li> Real-time Kafka-based data ingestion. </li>
+  </ul>
+<br>
+  <p><strong>GitHub:</strong> <a href="https://github.com/mithilesh1627/smart-traffic-management-system" target="_blank">View Repository</a></p>
+
+      <div class="tech-stack">
+        <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
+        <i class="devicon-opencv-plain colored" title="OpenCV">Computer Vision</i>&nbsp;
+        <i class="devicon-mongodb-plain colored" title="MongoDB">MongoDB</i>&nbsp;
+        <i class="devicon-pytorch-original colored" title="PyTorch">Pytorch</i>&nbsp;
+        <i class="devicon-streamlit-plain" title="Streamlit">Streamlit</i>&nbsp;
+        <i class="devicon-apacheairflow-plain-wordmark" title="=Airflow">Airflow</i>
+      </div>
+    </div>
+  </div>
                                     <!--Modal 5-->
    <div class="modal" id="modal5">
     <div class="modal-content">
@@ -380,3 +485,4 @@
   }
 </script>
 {% endblock %}
+
