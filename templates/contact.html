@@ -8,7 +8,7 @@
 
     <!-- Toast Message -->
     <div id="toast" class="toast success-toast">
-  ✅ Thank you! Your message has been sent.
+  Thank you! Your message has been sent.
 </div>
 
     <!-- Flash Errors -->
@@ -16,7 +16,7 @@
       {% if messages %}
         <div class="flash-message">
           {% for message in messages %}
-            <p>⚠️ {{ message }}</p>
+            <p> {{ message }}</p>
           {% endfor %}
         </div>
       {% endif %}
@@ -105,7 +105,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
     // Show success toast if server rendered it
     {% if success %}
-    showToast("✅ Message sent successfully! Please check your inbox/spam folder");
+    showToast(" Message sent successfully! Please check your inbox/spam folder");
     setTimeout(() => {
       hideToast();
     }, 4000);
@@ -129,3 +129,4 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 </script>
 
 {% endblock %}
+
