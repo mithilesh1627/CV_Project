@@ -1,265 +1,279 @@
 /* Root Section */
 #projects-certifications {
-  padding: 2rem 1rem;
-  background-color: var(--bg);
-  color: var(--text);
+    padding: 2rem 1rem;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 /* Titles */
 .section-title {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--text);
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text);
 }
 
 .sub-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--accent);
 }
 
 /* Tabs */
 .tab-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .tab-btn {
-  background-color: var(--chip-bg);
-  color: var(--chip-text);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--chip-shadow);
+    background-color: var(--chip-bg);
+    color: var(--chip-text);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--chip-shadow);
 }
 
 .tab-btn:hover,
 .tab-btn.active {
-  background-color: var(--primary-color);
-  color: #fff;
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 /* Tab Content */
 .tab-content {
-  display: none;
-  animation: fadeIn 0.4s ease-in-out;
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .tab-content.active {
-  display: block;
+    display: block;
 }
 
 /* Project & Certification Cards Grid */
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 /* Shared Card Styles */
 .project-card,
 .expandable-card,
 .cert-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1.2rem;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  overflow: hidden;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .project-card:hover,
 .expandable-card:hover,
 .cert-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Project Card Layout */
 .project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .project-card h4,
 .cert-card h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--link-color, #0056b3);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--link-color, #0056b3);
 }
 
 .project-card p,
 .cert-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
 }
 
 /* Image Styling */
 .project-image {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  display: block;
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 /* Tech Stack Chips */
 .tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    justify-content: center;
 }
 
 .tech-stack span {
-  background: var(--chip-bg);
-  color: var(--chip-text);
-  font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 5px;
-  box-shadow: var(--chip-shadow);
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    box-shadow: var(--chip-shadow);
 }
 
 /* Tech Icons */
 .tech-stack i {
-  font-size: 1.3rem;
-  margin-right: 0.3rem;
-  transition: transform 0.3s ease;
+    font-size: 1.3rem;
+    margin-right: 0.3rem;
+    transition: transform 0.3s ease;
 }
 
 .tech-stack i:hover {
-  transform: scale(1.25);
+    transform: scale(1.25);
 }
 
 /* Expandable Project Card */
 .project-details {
-  display: none;
-  margin-top: 0.8rem;
-  color: var(--text);
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+    display: none;
+    margin-top: 0.8rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .expandable-card.active .project-details {
-  display: block;
+    display: block;
 }
 
 /* Certification Card Links */
 .cert-card a {
-  font-size: 0.9rem;
-  color: var(--link-color);
-  text-decoration: underline;
+    font-size: 0.9rem;
+    color: var(--link-color);
+    text-decoration: underline;
 }
 
 .cert-card a:hover {
-  color: var(--hover-color);
+    color: var(--hover-color);
 }
 
 /* Modal */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 5%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 5%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .modal-content {
-  background-color: var(--card-bg);
-  color: var(--text);
-  margin: auto;
-  padding: 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: var(--card-shadow);
-  position: relative;
-  animation: fadeInUp 0.4s ease-out;
+    background-color: var(--card-bg);
+    color: var(--text);
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    animation: fadeInUp 0.4s ease-out;
 }
 
 .modal-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 .modal-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 .modal-content .tech-used {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 .modal-content .tech-used span {
-  display: inline-block;
-  background-color: var(--chip-bg);
-  color: var(--chip-text);
-  padding: 0.4rem 0.75rem;
-  margin: 0.2rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  box-shadow: var(--chip-shadow);
+    display: inline-block;
+    background-color: var(--chip-bg);
+    color: var(--chip-text);
+    padding: 0.4rem 0.75rem;
+    margin: 0.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    box-shadow: var(--chip-shadow);
 }
 
 /* Modal Close */
 .close {
-  color: var(--text);
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
+    color: var(--text);
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .close:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .card-container {
-    grid-template-columns: 1fr;
-  }
+    .card-container {
+        grid-template-columns: 1fr;
+    }
 }

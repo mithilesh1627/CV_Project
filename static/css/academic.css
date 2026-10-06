@@ -24,7 +24,8 @@
 }
 
 .tab:hover {
-    background: rgba(0, 119, 181, 0.1); /* subtle blue hover effect */
+    background: rgba(0, 119, 181, 0.1);
+    /* subtle blue hover effect */
     color: var(--accent);
     transform: scale(1.05);
 }
@@ -47,8 +48,13 @@
 }
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .timeline {
@@ -63,6 +69,7 @@
     margin-top: 1rem;
     line-height: 1.8;
 }
+
 .tab-content {
     display: none;
     opacity: 0;
@@ -78,10 +85,12 @@
     opacity: 1;
     transform: translateY(0);
 }
+
 .vertical-timeline {
     position: relative;
     margin: 2rem 0;
-    padding-left: 3rem; /* Gives room for the dot and line */
+    padding-left: 3rem;
+    /* Gives room for the dot and line */
     border-left: 3px solid var(--accent);
 }
 
@@ -94,18 +103,21 @@
 .vt-dot {
     position: absolute;
     left: -1.4rem;
-    top: 0.5rem; /* adjusted to match h3 line */
+    top: 0.5rem;
+    /* adjusted to match h3 line */
     width: 14px;
     height: 14px;
     background-color: var(--accent);
     border: 2px solid var(--bg);
     border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--accent); /* outer ring */
+    box-shadow: 0 0 0 4px var(--accent);
+    /* outer ring */
     z-index: 2;
 }
 
 .vt-content {
-    padding-left: 0; /* no padding so it starts aligned */
+    padding-left: 0;
+    /* no padding so it starts aligned */
 }
 
 .vt-content h3 {
@@ -132,14 +144,18 @@
     align-items: center;
     gap: 0.3rem;
 }
+
 .tab button {
-  transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .tab button:hover {
-  transform: scale(1.2); /* Slight zoom */
-  color: var(--highlight-color); /* Change to your theme's highlight color */
+    transform: scale(1.2);
+    /* Slight zoom */
+    color: var(--highlight-color);
+    /* Change to your theme's highlight color */
 }
+
 /* Responsive adjustments for tablets and mobiles */
 @media (max-width: 768px) {
     .academic-container {

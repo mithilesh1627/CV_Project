@@ -4,21 +4,37 @@
 <section class="hero">
     <div class="hero-content" data-aos="fade-up">
         <div class="profile-wrapper">
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring static-ring"></div>
-            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile" class="profile-pic">
-    </div>
-        <h1 id="typewriter-text" class="typewriter"></h1>
+            <div class="pulse-ring" aria-hidden="true"></div>
+            <div class="pulse-ring static-ring" aria-hidden="true"></div>
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Mithilesh Chaurasiya - Machine Learning &amp; MLOps Engineer" class="profile-pic" width="160" height="160">
+        </div>
+
+        <h1 class="hero-name">Mithilesh Chaurasiya</h1>
+        <p class="hero-subtitle">
+            <span class="highlight">AI Engineer</span> &nbsp;|&nbsp;
+            <span class="highlight">Machine Learning Engineer</span> &nbsp;|&nbsp;
+            <span class="highlight">MLOps Engineer</span>
+        </p>
+
         <h2>From ETL Pipelines to ML Models.</h2>
-<p>
-    <strong>Machine Learning / MLOps Engineer</strong> with 2.8 years at Infosys across <strong>data engineering</strong>, <strong>ETL validation</strong>, and <strong>ML-adjacent production work</strong> — including bringing <span class="highlight">MLflow</span> and <span class="highlight">DVC</span> into a production team's workflow. I build production-oriented ML systems: <span class="highlight">real-time computer vision</span> (YOLO, OpenCV), <span class="highlight">MLOps pipelines</span> (Airflow, MLflow, DVC, Docker), and <span class="highlight">GenAI/RAG applications</span> (LangChain).
-</p>
-<p>
-    Open to <strong>Machine Learning</strong>, <strong>MLOps</strong>, and <strong>AI Engineer</strong> roles. Python-first and deployment-minded — MCA @ NIT Agartala (2027), leading the institute's ML student team.
-</p>
+        <p>
+            <strong>Machine Learning / MLOps Engineer</strong> with 2.8 years at Infosys across <strong>data
+                engineering</strong>, <strong>ETL validation</strong>, and <strong>ML-adjacent production work</strong> —
+            including bringing <span class="highlight">MLflow</span> and <span class="highlight">DVC</span> into a production
+            team's workflow. I build production-oriented ML systems: <span class="highlight">real-time computer vision</span>
+            (YOLO, OpenCV), <span class="highlight">MLOps pipelines</span> (Airflow, MLflow, DVC, Docker), and <span
+                class="highlight">GenAI/RAG applications</span> (LangChain).
+        </p>
+        <p>I build production-oriented ML/AI systems spanning real-time computer
+        vision, reproducible MLOps pipelines, distributed systems, and
+        GenAI/RAG applications.</p>
+        <p>
+            Open to <strong>Machine Learning</strong>, <strong>MLOps</strong>, and <strong>AI Engineer</strong> roles.
+              MCA @ NIT Agartala (2027), leading the institute's ML student team.
+        </p>
         <div class="social-links">
-            <a href="https://github.com/mithilesh1627" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://linkedin.com/in/mithileshchaurasiya" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/mithilesh1627" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/mithileshchaurasiya" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
         <br>
         <div class="download-cv">
@@ -26,7 +42,6 @@
                 <button class="btn-download-cv">Download CV</button>
             </a>
         </div>
-
     </div>
 </section>
 {% endblock %}

@@ -1,491 +1,174 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/project_certificate.css') }}">
+
 <section id="projects-certifications">
-<h2 class="section-title" data-aos="fade-right">Projects & Certifications</h2>
-<div class="tab-container">
-    <button class="tab-btn active" data-tab="projects-tab">Projects</button>
-    <button class="tab-btn" data-tab="certifications-tab">Certifications</button>
-  </div>
-  <!-- ========== Projects Section ========== -->
+    <div style="text-align: center; margin-bottom: 2.5rem;" data-aos="fade-down">
+        <h2 class="section-title">Projects &amp; Certifications</h2>
 
-  <div class="card-container">
-    <!-- Project Cards -->
-     
-     <div class="tab-content active" id="projects-tab">
-       <div class="card-container">
-           <div class="project-card" onclick="openModal('modal8')" data-aos="fade-up" data-aos-delay="700">
-            <h4>Production-Grade Smart Traffic Management System (AI + MLOps)</h4>
-            <img src="{{ url_for('static', filename='images/poster1.png') }}" alt="Smart Traffic Management System" class="project-image" />
-            <strong>GitHub:</strong>
-            <a href="https://github.com/mithilesh1627/smart-traffic-management-system" target="_blank">
-              View Repository
-            </a>
-            <strong>Demo Video:</strong>
-            <a href="https://drive.google.com/file/d/1xmBCdNr5SF1Etrsip_3LKA1uowlMNEeN/view" target="_blank">
-              smart traffic demo video
-            </a>
-          </div>
-        <div class="project-card" onclick="openModal('modal7')" data-aos="fade-up" data-aos-delay="700">
-            <h4>Stock Market ETL Pipeline (Airflow + MongoDB)</h4>
-            <img src="{{ url_for('static', filename='images/stock_etl_airflow.png') }}" alt="Stock Market ETL Pipeline" class="project-image" />
-            <strong>GitHub:</strong>
-            <a href="https://github.com/mithilesh1627/Stock-Market-ETL-Airflow" target="_blank">
-              View Repository
-            </a>
-          </div>
-         <div class="project-card" onclick="openModal('modal4')" data-aos="fade-up" data-aos-delay="400">
-            <h4>Heart Disease ML Model</h4>
-            <img src="{{ url_for('static', filename='images/heart_disease.png') }}" alt="Heart Disease ML Model" class="project-image" />
-            <strong>Live App:</strong>
-            <a href="https://heartdiseasepredictmodel1627.streamlit.app/" target="_blank">
-              Launch on Streamlit
-            </a>
-          </div>
-          <div class="project-card" onclick="openModal('modal5')" data-aos="fade-up" data-aos-delay="400">
-            <h4>Diabetes Prediction ML Model</h4>
-            <img src="{{ url_for('static', filename='images/Diabetes.png') }}" alt="Heart Disease ML Model" class="project-image" />
-            <strong>Live App:</strong>
-            <a href="https://diabetespredictmodel1627.streamlit.app/" target="_blank">
-              Launch on Streamlit
-            </a>
-          </div>
-          <div class="project-card" onclick="openModal('modal3')" data-aos="fade-up" data-aos-delay="400">
-            <h4>Gender Classification using CNN</h4>
-              <img src="{{ url_for('static', filename='images/Gender_Detection.png') }}" alt="Heart Disease ML Model" class="project-image" />
-          </div>
-          <div class="project-card" onclick="openModal('modal1')" data-aos="fade-up" data-aos-delay="500">
-            <h4>BihariBlogger</h4>
-            <img src="{{ url_for('static', filename='images/BihariBlogger.jpg') }}" alt="BihariBlogger" class="project-image" />
-          </div>
+    </div>
 
-          <div class="project-card" onclick="openModal('modal2')" data-aos="fade-up" data-aos-delay="300">
-            <h4>MockAnalysis</h4>
-                <img src="{{ url_for('static', filename='images/MockAnalysis_image.png') }}" alt="MockAnalysis" class="project-image" />
-          </div>
-           
-            
-          <div class="project-card" onclick="openModal('modal6')" data-aos="fade-up" data-aos-delay="600">
-            <h4>Next Project in Progress</h4>
-            <img src="{{ url_for('static', filename='images/Next_Project_image.jpg') }}" alt="Next Project" class="project-image" />
-          </div>
+    <div class="tab-container">
+        <button class="tab-btn active" data-tab="projects-tab">
+            <i class="fas fa-layer-group"></i> Projects ({{ projects|length }})
+        </button>
+        <button class="tab-btn" data-tab="certifications-tab">
+            <i class="fas fa-certificate"></i> Certifications ({{ certifications|length if certifications else 12 }})
+        </button>
+    </div>
+
+    <!-- ========== Dynamic Projects Section ========== -->
+    <div class="tab-content active" id="projects-tab">
+        <div class="card-container">
+            {% for project in projects %}
+                {% include "components/project_card.html" %}
+            {% endfor %}
         </div>
-      </div>
-  </div>
-
-  <!-- ========== Modal Windows ========== -->
-
-  <!-- Modal 1 -->
-  <div class="modal" id="modal1">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal1')">&times;</span>
-      <h3>BihariBlogger – A Social Blogging Web App</h3>
-  <p><strong>Overview:<br></strong> BihariBlogger is a dynamic blogging platform that allows users to share their thoughts, connect through posts, and explore content from fellow bloggers. It is designed with scalability, usability, and modularity in mind using the Flask web framework and MongoDB for flexible document storage.</p>
-
-  <p><strong>Key Features:</strong></p>
-  <ul>
-    <li>User authentication with registration and login system using <code>Flask-Login</code>.</li>
-    <li>Clean and responsive UI built with HTML5, CSS3, and Bootstrap 5.</li>
-    <li>Write, edit, and delete blog posts with Markdown-style content support.</li>
-    <li>Contact and feedback form integration with email alerts (SMTP setup planned).</li>
-    <li>Each user has their own dashboard with a personalized list of authored blogs.</li>
-    <li>MongoDB backend for flexible schema design and fast CRUD operations.</li>
-  </ul>
-<br>
-  <p><strong>Technical Stack:</strong></p>
-  <ul>
-    <li><strong>Backend:</strong> Flask, Flask-PyMongo, Flask-WTF, Flask-Login</li>
-    <li><strong>Frontend:</strong> HTML, CSS, Bootstrap 5, Jinja2 templating</li>
-    <li><strong>Database:</strong> MongoDB (NoSQL) via PyMongo</li>
-    <li><strong>Additional Tools:</strong> Jinja2, WTForms for form validation, Flask’s `url_for` and Blueprints for modular routing</li>
-  </ul>
-<br>
-  <p><strong>Challenges Overcome:</strong></p>
-  <ul>
-    <li>Handled CSRF protection and form validation using Flask-WTF.</li>
-    <li>Designed RESTful routes and maintained session-based authentication with Flask-Login.</li>
-    <li>Built a modular file structure separating routes, forms, and templates for clean scalability.</li>
-  </ul>
-<br>
-  <p><strong>Future Improvements:</strong></p>
-  <ul>
-    <li>Implement user avatars and profile bios</li>
-    <li>Allow liking and commenting on posts</li>
-    <li>Add category filtering and search functionality</li>
-    <li>Enable email notifications and password reset flows</li>
-  </ul>
-<br>
-  <p><strong>GitHub:</strong> <a href="https://github.com/mithilesh1627/BihariBlogger" target="_blank">View Repository</a></p>
-
-      <div class="tech-stack">
-        <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
-        <i class="devicon-flask-original-wordmark colored" title="Flask">Flask</i>&nbsp;
-        <i class="devicon-mongodb-plain colored" title="MongoDB">MongoDB</i>&nbsp;
-        <i class="devicon-html5-plain colored" title="HTML">HTML</i>&nbsp;
-        <i class="devicon-css3-plain colored" title="CSS">CSS</i>&nbsp;
-        <i class="devicon-bootstrap-plain colored" title="Bootstrap">Bootstrap</i>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Modal 3 -->
-  <div class="modal" id="modal2">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal2')">&times;</span>
-      <h3>MockAnalysis</h3>
-      <div class="project-screenshot" style="margin-top: 1.5rem;">
-      </div>
-      <p>
-      The <strong>MockAnalysisProject</strong> is a smart automation tool built to extract, clean, and analyze students' mock test performance data from an online educational platform. This project was designed to automate the repetitive process of manual result tracking and enable insightful analysis for academic performance monitoring.
-    </p>
-    <p>
-      The system uses <strong>Selenium</strong> to programmatically interact with the test portal, including logging in, navigating result pages, and extracting structured data. Once collected, the data is cleaned and processed using <strong>Pandas</strong> for tabular transformation and aggregation.
-    </p>
-    <p>
-      The tool is highly customizable and can be adapted to work with different institutional platforms that follow structured formats.
-    </p>
-      <p style="margin-top: 1rem;">
-      GitHub: <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/MockAnalysisProject" target="_blank" style="color: var(--link-color); text-decoration: underline;">
-        View Repository
-      </a>
-    </p>
-      <div class="tech-stack">
-          <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
-          <i class="devicon-pandas-plain" title="Pandas">Pandas</i>&nbsp;
-          <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>&nbsp;
-          <i class="devicon-opencv-plain colored" title="OpenCV">OpenCV</i>&nbsp;
-          <i class="devicon-selenium-original colored" title="Selenium">Selenium</i>&nbsp;
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modal3">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal3')">&times;</span>
-     <h3>Gender Classification using CNN</h3>
-       <div class="project-screenshot" style="margin-top: 1.5rem;">
-      </div>
-    <p>
-      This project focuses on building a deep learning-based model that classifies a person's gender from facial images. It utilizes <strong>Convolutional Neural Networks (CNNs)</strong> to learn intricate facial features for high-accuracy predictions.
-    </p>
-    <p>
-      A dataset of over <strong>3,000+ labeled facial images</strong> was cleaned and preprocessed (resized, normalized, and augmented) before being fed into the CNN. The model was trained and fine-tuned to detect and classify gender with over <strong>87.8% accuracy</strong>.
-    </p>
-    <p>
-      Real-time face detection was integrated using <strong>OpenCV</strong>, enabling live predictions directly from a webcam. This significantly enhances the model’s practical usability for real-world applications like demographic analysis and personalization engines.
-    </p>
-    <p>
-      Additional improvements were achieved by experimenting with different kernel sizes, dropout layers, and batch normalization to reduce overfitting and improve generalization.
-    </p>
-       <p style="margin-top: 1rem;">
-      GitHub: <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/MockAnalysisProject" target="_blank" style="color: var(--link-color); text-decoration: underline;">
-        View Repository
-      </a>
-    </p>
-      <div class="tech-stack">
-          <i class="devicon-python-plain colored" title="Python">Python</i>
-          <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
-          <i class="devicon-tensorflow-original colored" title="TensorFlow">TensorFlow</i>
-          <i class="devicon-keras-plain " title="Keras">Keras</i>
-          <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
-          <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
-          <i class="devicon-matplotlib-plain colored" title="Matplotlib">Matplotlib</i>
-          <i class="devicon-opencv-plain colored" title="OpenCV">OpenCV</i>
-      </div>
-    </div>
-  </div>
-                                  <!--Modal 4-->
-  <div class="modal" id="modal4">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal4')">&times;</span>
-      <h3>Heart Disease Prediction</h3>
-    <p>
-      A machine learning-based diagnostic tool that predicts the presence of heart disease using clinical data such as age, sex, chest pain type, resting blood pressure, cholesterol levels, and other health indicators.
-    </p>
-    <ul>
-      <li>Performed data preprocessing, feature selection, and model training using <strong>Logistic Regression, Random Forest</strong>, and <strong>Support Vector Machines</strong>.</li>
-      <li>Implemented extensive <strong>exploratory data analysis (EDA)</strong> and understand correlations and feature importance.</li>
-      <li>Evaluated models using confusion matrix, ROC-AUC, precision, recall, and F1-score, achieving an accuracy of <strong>~86%</strong>.</li>
-      <li><strong>Deployed</strong> the application using <strong>Streamlit</strong> for an intuitive and interactive web interface.</li>
-    </ul>
-    <br>
-     <p>
-      <strong>GitHub:</strong>
-      <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/Heart%20Disease%20Prediction" target="_blank">
-        View Repository
-      </a><br>
-      <strong>Live App:</strong>
-      <a href="https://diabetespredictmodel1627.streamlit.app/" target="_blank">
-        Launch on Streamlit
-      </a>
-    </p>
-    <img src="{{ url_for('static', filename='img/heart_prediction_ui.png') }}" alt="Heart Disease UI" style="width: 100%; margin-top: 1rem; border-radius: 10px;">
-      <div class="tech-used">
-        <i class="devicon-python-plain colored" title="Python">Python</i>
-        <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
-        <i class="devicon-pandas-original colored" title="Pandas">Pandas</i>
-        <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
-        <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
-        <i class="devicon-streamlit-plain " title="Streamlit">Streamlit</i>
-    </div>
-  </div>
-  </div>
-                                    <!--Model 8 -->
-    <div class="modal" id="modal8">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal8')">&times;</span>
-      <h3>Smart Traffic Management System (AI + MLOps)</h3>
-  <p><strong>Overview:<br></strong> End-to-End Computer Vision + MLOps Pipeline using YOLO, Airflow, MLflow & DVC A production-oriented smart traffic analytics system that performs vehicle detection, tracking, counting, and traffic flow analysis, orchestrated using Apache Airflow and fully versioned with DVC + MLflow.</p>
-
-  <p><strong>Key Features:</strong></p>
-  <ul>
-    <li> Vehicle Detection: YOLO-based real-time object detection.</li>
-    <li> Object Tracking: Persistent ID tracking across frames.</li>
-    <li> Traffic Metrics: Vehicle count, flow, density estimation.</li>
-    <li> Dataset Validation: Integrity checks & auto-labeling.</li>
-    <li>Experiment Tracking: MLflow logging & reproducibility.</li>
-    <li> Visualization: Streamlit dashboards</li>
-  </ul>
-<br>
-   <p><strong> Tech Stack:</strong></p>
-  <table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Layer</th>
-      <th>Tools</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Computer Vision</td>
-      <td>YOLO (Ultralytics), OpenCV</td>
-    </tr>
-    <tr>
-      <td>Deep Learning</td>
-      <td>PyTorch</td>
-    </tr>
-    <tr>
-      <td>Workflow Orchestration</td>
-      <td>Apache Airflow</td>
-    </tr>
-    <tr>
-      <td>Experiment Tracking</td>
-      <td>MLflow</td>
-    </tr>
-    <tr>
-      <td>Dataset Versioning</td>
-      <td>DVC</td>
-    </tr>
-    <tr>
-      <td>Database</td>
-      <td>MongoDB</td>
-    </tr>
-    <tr>
-      <td>Visualization</td>
-      <td>Streamlit, Plotly</td>
-    </tr>
-    <tr>
-      <td>Language</td>
-      <td>Python</td>
-    </tr>
-  </tbody>
-</table>
-
- <br>
-  <p><strong>Key Observations:</strong></p>
-  <ul>
-    <li>Car detection achieved excellent performance, making it highly reliable for vehicle counting and traffic flow estimation.</li>
-    <li>Bus and truck classes show strong detection accuracy, suitable for heavy-vehicle analytics.</li>
-    <li>Person detection performs well, enabling pedestrian density and safety analysis.</li>
-    <li>Motorbike detection shows moderate performance, mainly affected by small object size and occlusion.</li>
-    <li> When combined with multi-object tracking (ByteTrack / BoT-SORT), the effective accuracy improves significantly, ensuring stable real-world deployment.</li>
-  </ul>
-<br>
-  <p><strong>Future Improvements:</strong></p>
-  <ul>
-    <li> Multi-camera tracking.</li>
-    <li> Detect whether the driver is wearing a helmet and notify administrators via IoT (Raspberry Pi).</li>
-    <li> Vehicle re-identification.</li>
-    <li> Number plate recognition.</li>
-    <li> Detection of traffic rule violations.</li>
-    <li> Real-time Kafka-based data ingestion. </li>
-  </ul>
-<br>
-  <p><strong>GitHub:</strong> <a href="https://github.com/mithilesh1627/smart-traffic-management-system" target="_blank">View Repository</a></p>
-
-      <div class="tech-stack">
-        <i class="devicon-python-plain colored" title="Python">Python</i>&nbsp;
-        <i class="devicon-opencv-plain colored" title="OpenCV">Computer Vision</i>&nbsp;
-        <i class="devicon-mongodb-plain colored" title="MongoDB">MongoDB</i>&nbsp;
-        <i class="devicon-pytorch-original colored" title="PyTorch">Pytorch</i>&nbsp;
-        <i class="devicon-streamlit-plain" title="Streamlit">Streamlit</i>&nbsp;
-        <i class="devicon-apacheairflow-plain-wordmark" title="=Airflow">Airflow</i>
-      </div>
-    </div>
-  </div>
-                                    <!--Modal 5-->
-   <div class="modal" id="modal5">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <h3>PIMA Diabetes Prediction</h3>
-    <p>
-      Built a predictive ML tool using the <strong>PIMA Indian Diabetes dataset</strong> to identify the likelihood of diabetes in female patients based on medical and lifestyle data such as glucose level, BMI, insulin level, and age.
-    </p>
-    <ul>
-      <li>Utilized <strong>Logistic Regression, K-Nearest Neighbors, Decision Trees</strong>, and ensemble techniques for improved model performance.</li>
-      <li>Applied <strong>data normalization and feature scaling</strong> to handle wide-ranging feature values.</li>
-      <li>Conducted EDA and plotted histograms, pair plots, and correlation matrices for feature insights.</li>
-      <li>Achieved an accuracy of <strong>~82%</strong> and deployed it as an interactive web app using <strong>Streamlit</strong>.</li>
-    </ul>
-      <br>
-       <p>
-      <strong>GitHub:</strong>
-      <a href="https://github.com/mithilesh1627/ML-Projects/tree/main/PIMA%20Diabetes%20Prediction" target="_blank">
-        View Repository
-      </a><br>
-    </p>
-    <img src="{{ url_for('static', filename='img/pima_diabetes_ui.png') }}" alt="PIMA Diabetes UI" style="width: 100%; margin-top: 1rem; border-radius: 10px;">
-
-  <div class="tech-used">
-    <i class="devicon-python-plain colored" title="Python">Python</i>
-        <i class="devicon-jupyter-plain-wordmark colored" title="Jupyter Notebook">Jupyter Notebook</i>
-        <i class="devicon-pandas-original colored" title="Pandas">Pandas</i>
-        <i class="devicon-scikitlearn-plain colored" title="Sklearn">Sklearn</i>
-        <i class="devicon-numpy-plain colored" title="Numpy">Numpy</i>
-        <i class="devicon-streamlit-plain " title="Streamlit">Streamlit</i>
-      </div>
-  </div>
-  </div>
-  <div class="modal" id="modal7">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal7')">&times;</span>
-    <h3>Stock Market ETL Pipeline (Apache Airflow + MongoDB)</h3>
-    <p>
-      This real-world ETL pipeline automates the daily ingestion of stock price data from an external API. Designed for production-readiness, it includes fault-tolerant architecture, task modularity, and streamlined scheduling using <strong>Apache Airflow</strong>.
-    </p>
-    <ul>
-      <li><strong>Data Flow:</strong> Extract → Transform → Load, fully orchestrated via Airflow DAG</li>
-      <li><strong>Transformation:</strong> Data cleaned and processed using <code>Pandas</code></li>
-      <li><strong>Storage:</strong> Structured stock data stored in <code>MongoDB</code> as JSON</li>
-      <li><strong>Configurable:</strong> Task retries, XComs, logging, and scheduling support</li>
-    </ul>
-    <p><strong>Tech Stack:</strong> Apache Airflow, Python, Pandas, MongoDB, Streamlit (dashboard in progress)</p>
-    <p><strong>What I Learned:</strong> Real-world data workflow design, modular ETL architecture, NoSQL integration, and Airflow DAG best practices.</p>
-    <p><strong>Planned Improvements:</strong></p>
-    <ul>
-      <li>Slack/email notifications for task failures</li>
-      <li>Streamlit dashboard for visualizing top gainers/losers</li>
-      <li>Dockerized deployment for portability</li>
-      <li>Real-time stock prediction using RNN models</li>
-    </ul>
-    <br>
-    <p>
-      <strong>GitHub:</strong>
-      <a href="https://github.com/mithilesh1627/Stock-Market-ETL-Airflow" target="_blank">
-        View Repository
-      </a>
-    </p>
-    <div class="tech-used">
-      <i class="devicon-python-plain colored" title="Python">Python</i>
-      <i class="devicon-apache-plain colored" title="Apache Airflow">Airflow</i>
-      <i class="devicon-mongodb-plain colored" title="MongoDB">MongoDB</i>
-      <i class="devicon-pandas-plain colored" title="Pandas">Pandas</i>
-      <i class="devicon-streamlit-plain colored" title="Streamlit">Streamlit</i>
-    </div>
-  </div>
-</div>
-<!--     Modal6 -->
-     <div class="modal" id="modal6">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal6')">&times;</span>
-      <h3>Next Project in Progress</h3>
-    </div>
-  </div>
-
-
-  <!-- ========== Certifications Section ========== -->
-  <div class="tab-content" id="certifications-tab">
-  <div class="card-container">
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Accenture North America - Data Analytics and Visualization Job Simulation</h4>
-      <p>Credential ID: 2tG6WLM2W5Yv9jJ</p>
-      <a href="https://drive.google.com/file/d/1WGgg5hHKA10Agr1UDe1cc9v8yei--NIp/view?usp=sharing" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Python Training by Spoken Tutorial</h4>
-      <p>Issued by: Spoken Tutorial Project, IIT Bombay,Govt., of India</p>
-      <a href="https://drive.google.com/file/d/1zkq1Tq54rDRfPo_top5RA2-tuxgrA7j8/view?usp=drive_link" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Machine Learning Foundations</h4>
-      <p>Issued by: Great Learning</p>
-      <a href="https://drive.google.com/file/d/1MUI6bV8lwD41G0fq0rwjEbcm70c5aN6b/view" target="_blank">View Certificate</a>
     </div>
 
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Computer Vision Essentials</h4>
-      <p>Issued by: Great Learning</p>
-      <a href="https://drive.google.com/file/d/1xYdhVR-tp0AesaXBLhIqRzMoN1dUVtfX/view" target="_blank">View Certificate</a>
+    <!-- ========== Certifications Section ========== -->
+    <div class="tab-content" id="certifications-tab">
+        <div class="card-container">
+            {% if certifications %}
+                {% for cert in certifications %}
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>{{ cert.title }}</h4>
+                    {% if cert.issuer %}
+                    <p>Issued by: {{ cert.issuer }}</p>
+                    {% endif %}
+                    {% if cert.credential_id %}
+                    <p style="font-size: 0.82rem; color: var(--text-dim, #64748b);">Credential ID: {{ cert.credential_id }}</p>
+                    {% endif %}
+                    {% if cert.link %}
+                    <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Accenture North America - Data Analytics and Visualization Job Simulation</h4>
+                    <p>Credential ID: 2tG6WLM2W5Yv9jJ</p>
+                    <a href="https://drive.google.com/file/d/1WGgg5hHKA10Agr1UDe1cc9v8yei--NIp/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Python Training by Spoken Tutorial</h4>
+                    <p>Issued by: Spoken Tutorial Project, IIT Bombay, Govt. of India</p>
+                    <a href="https://drive.google.com/file/d/1zkq1Tq54rDRfPo_top5RA2-tuxgrA7j8/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Machine Learning Foundations</h4>
+                    <p>Issued by: Great Learning</p>
+                    <a href="https://drive.google.com/file/d/1MUI6bV8lwD41G0fq0rwjEbcm70c5aN6b/view" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Computer Vision Essentials</h4>
+                    <p>Issued by: Great Learning</p>
+                    <a href="https://drive.google.com/file/d/1xYdhVR-tp0AesaXBLhIqRzMoN1dUVtfX/view" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Python for Machine Learning</h4>
+                    <p>Issued by: Great Learning</p>
+                    <a href="https://drive.google.com/file/d/10pIBT-J5Nb1cQ_0zvaddFfK-UTcfLc1X/view" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Unsupervised ML with K-Means</h4>
+                    <p>Issued by: Great Learning</p>
+                    <a href="https://drive.google.com/file/d/1Wusu6V_c7t0Y3736-PTNuFOEhGntbH6p/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Neural Network &amp; Deep Learning</h4>
+                    <p>Issued by: Great Learning</p>
+                    <a href="https://drive.google.com/file/d/1CWCENkhAoaa3o8BVrwVXasfcGtuXa-cD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Infosys Certified Selenium with Python Automation Tester</h4>
+                    <p>Issued by: Infosys Ltd.</p>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Infosys Certified Software Development Engineer in Test (SDET)</h4>
+                    <p>Issued by: Infosys Ltd.</p>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Infosys Certified Digital Assurance Professional</h4>
+                    <p>Issued by: Infosys Ltd.</p>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Infosys Certified Python Programmer</h4>
+                    <p>Issued by: Infosys Ltd.</p>
+                </div>
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Infosys Certified Data Management Associate</h4>
+                    <p>Issued by: Infosys Ltd.</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
-
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Python for Machine Learning</h4>
-      <p>Issued by: Great Learning</p>
-      <a href="https://drive.google.com/file/d/10pIBT-J5Nb1cQ_0zvaddFfK-UTcfLc1X/view" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Unsupervised ML with K-Mean</h4>
-      <p>Issued by: Great Learning</p>
-      <a href="https://drive.google.com/file/d/1Wusu6V_c7t0Y3736-PTNuFOEhGntbH6p/view?usp=drive_link" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Neural Network & Deep Learning.</h4>
-      <p>Issued by: Great Learning</p>
-      <a href="https://drive.google.com/file/d/1CWCENkhAoaa3o8BVrwVXasfcGtuXa-cD/view?usp=drive_link" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Infosys Certified Selenium with Python Automation Tester</h4>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Infosys Certified Software Development Engineer in Test (SDET)</h4>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Infosys Certified Digital Assurance Professional</h4>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-     <h4>Infosys Certified Python Programmer</h4>
-    </div>
-    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-    <h4>Infosys Certified Data Management Associate</h4>
-    </div>
-  </div>
-</div>
 </section>
 
-<!-- AOS -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- ========== Dynamic Project Modals (Generated from MongoDB / Project Service) ========== -->
+{% for project in projects %}
+    {% include "components/project_modal.html" %}
+{% endfor %}
+
+<!-- Script for Tab Switching & Modal Controls -->
 <script>
-  AOS.init({ duration: 800, once: true });
+document.addEventListener("DOMContentLoaded", function () {
+    // Tab switching between Projects & Certifications
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-  function openModal(id) {
-    document.getElementById(id).style.display = 'block';
-  }
+    tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            tabContents.forEach((tab) => tab.classList.remove("active"));
 
-  function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
-  }
-
-  window.onclick = function(event) {
-    document.querySelectorAll(".modal").forEach(modal => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
+            btn.classList.add("active");
+            const target = document.getElementById(btn.dataset.tab);
+            if (target) {
+                target.classList.add("active");
+            }
+        });
     });
-  }
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            document.querySelectorAll(".modal").forEach((modal) => {
+                if (modal.style.display === "block") {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "";
+                }
+            });
+        }
+    });
+
+    // Close on Backdrop click
+    window.addEventListener("click", function (event) {
+        document.querySelectorAll(".modal").forEach((modal) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        });
+    });
+});
+
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        const closeBtn = modal.querySelector(".close");
+        if (closeBtn) closeBtn.focus();
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+}
 </script>
 {% endblock %}
-
-
-

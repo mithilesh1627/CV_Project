@@ -1,0 +1,33 @@
+<!-- Reusable Project Card Component -->
+<div class="project-card" onclick="openModal('{{ project.modal_id }}')" data-category="{{ project.category }}" data-aos="fade-up" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View details for {{ project.title }}">
+    <h4>{{ project.title }}</h4>
+    <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }} preview" class="project-image" loading="lazy">
+    
+    {% if project.short_description %}
+    <p class="project-tagline" style="font-size: 0.88rem; color: var(--text-muted, #94a3b8); margin: 0.5rem 0;">{{ project.short_description }}</p>
+    {% endif %}
+
+    <div class="project-card-footer" style="margin-top: auto; display: flex; flex-direction: column; gap: 0.35rem;">
+        {% if project.github_url %}
+        <div style="font-size: 0.9rem;">
+            <strong>GitHub:</strong>
+            <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+                View Repository
+            </a>
+        </div>
+        {% endif %}
+        
+        {% if project.live_url %}
+        <div style="font-size: 0.9rem;">
+            <strong>Live Demo:</strong>
+            <a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+                {{ project.demo_label }}
+            </a>
+        </div>
+        {% endif %}
+
+        <button class="btn-open-details" onclick="openModal('{{ project.modal_id }}')" style="background: transparent; border: none; color: var(--accent, #38bdf8); font-weight: 600; text-align: left; padding: 0.4rem 0; cursor: pointer;">
+            View Architecture Details &rarr;
+        </button>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-dashboard-container" style="max-width: 1200px; margin: 3rem auto 6rem; padding: 0 1.5rem;">
+    <!-- Dashboard Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border, #1f2937); padding-bottom: 1.5rem;">
+        <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+                <span class="section-kicker" style="color: var(--accent, #38bdf8); font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">CMS Control Center</span>
+                {% if is_connected %}
+                <span style="font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); padding: 0.15rem 0.5rem; border-radius: 9999px;">
+                    <i class="fas fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> MongoDB Live
+                </span>
+                {% else %}
+                <span style="font-size: 0.75rem; background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 0.15rem 0.5rem; border-radius: 9999px;">
+                    <i class="fas fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> Static Fallback Mode
+                </span>
+                {% endif %}
+            </div>
+            <h1 style="font-size: 2rem; color: var(--text, #f8fafc); margin: 0;">Portfolio Project CMS</h1>
+        </div>
+
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="{{ url_for('admin.project_new') }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; background: linear-gradient(135deg, var(--primary, #3b82f6), #2563eb); color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem;">
+                <i class="fas fa-plus"></i> Add New Project
+            </a>
+            <a href="{{ url_for('admin.logout') }}" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1rem; background: var(--surface-card, #1a2234); border: 1px solid var(--border, #334155); color: var(--text-muted, #94a3b8); border-radius: 8px; text-decoration: none; font-size: 0.95rem;">
+                <i class="fas fa-right-from-bracket"></i> Sign Out
+            </a>
+        </div>
+    </div>
+
+    <!-- Flash Notifications -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div style="margin-bottom: 2rem;">
+        {% for category, message in messages %}
+        <div style="padding: 0.85rem 1.25rem; border-radius: 8px; font-size: 0.95rem; margin-bottom: 0.65rem; background: {% if category == 'error' %}rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3);{% elif category == 'success' %}rgba(34, 197, 94, 0.15); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.3);{% else %}rgba(56, 189, 248, 0.15); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.3);{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Projects Table Container -->
+    <div style="background: var(--surface, #111827); border: 1px solid var(--border, #1f2937); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md);">
+        <div style="padding: 1.25rem 1.5rem; background: var(--surface-card, #1a2234); border-bottom: 1px solid var(--border, #334155); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 1.1rem; color: var(--text, #f8fafc);">All Projects ({{ projects|length }})</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted, #94a3b8);">Saved in MongoDB collection <code>projects</code></span>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: rgba(11, 15, 25, 0.5); border-bottom: 1px solid var(--border, #1f2937); color: var(--text-dim, #64748b);">
+                        <th style="padding: 1rem 1.25rem;">Project Details</th>
+                        <th style="padding: 1rem 1.25rem;">Slug</th>
+                        <th style="padding: 1rem 1.25rem;">Category</th>
+                        <th style="padding: 1rem 1.25rem;">Featured</th>
+                        <th style="padding: 1rem 1.25rem;">Status</th>
+                        <th style="padding: 1rem 1.25rem; text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in projects %}
+                    <tr style="border-bottom: 1px solid var(--border, #1f2937); transition: background 0.15s ease;">
+                        <td style="padding: 1.15rem 1.25rem;">
+                            <div style="font-weight: 600; color: var(--text, #f8fafc); font-size: 1rem;">{{ p.title }}</div>
+                            {% if p.subtitle %}
+                            <div style="font-size: 0.82rem; color: var(--accent, #38bdf8); margin-top: 0.2rem;">{{ p.subtitle }}</div>
+                            {% endif %}
+                        </td>
+                        <td style="padding: 1.15rem 1.25rem;">
+                            <code style="background: var(--surface-card, #1a2234); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.82rem; color: #cbd5e1;">{{ p.slug }}</code>
+                        </td>
+                        <td style="padding: 1.15rem 1.25rem;">
+                            <span style="font-size: 0.82rem; text-transform: capitalize; color: var(--text-muted, #94a3b8);">{{ p.category }}</span>
+                        </td>
+                        <td style="padding: 1.15rem 1.25rem;">
+                            {% if p.featured %}
+                            <span style="font-size: 0.78rem; background: rgba(56, 189, 248, 0.15); color: var(--accent, #38bdf8); padding: 0.2rem 0.55rem; border-radius: 9999px; font-weight: 600;">
+                                ★ Order: {{ p.featured_order }}
+                            </span>
+                            {% else %}
+                            <span style="font-size: 0.78rem; color: var(--text-dim, #64748b);">No</span>
+                            {% endif %}
+                        </td>
+                        <td style="padding: 1.15rem 1.25rem;">
+                            {% if p.published %}
+                            <span style="font-size: 0.78rem; background: rgba(34, 197, 94, 0.15); color: #4ade80; padding: 0.2rem 0.55rem; border-radius: 9999px; font-weight: 600;">Published</span>
+                            {% else %}
+                            <span style="font-size: 0.78rem; background: rgba(239, 68, 68, 0.15); color: #f87171; padding: 0.2rem 0.55rem; border-radius: 9999px; font-weight: 600;">Draft</span>
+                            {% endif %}
+                        </td>
+                        <td style="padding: 1.15rem 1.25rem; text-align: right;">
+                            <div style="display: inline-flex; gap: 0.5rem; align-items: center;">
+                                <a href="{{ url_for('admin.project_edit', slug=p.slug) }}" style="padding: 0.45rem 0.85rem; background: var(--surface-card, #1a2234); border: 1px solid var(--border, #334155); color: var(--text, #f8fafc); border-radius: 6px; text-decoration: none; font-size: 0.82rem; font-weight: 600;">
+                                    <i class="fas fa-pen"></i> Edit
+                                </a>
+
+                                <form method="POST" action="{{ url_for('admin.project_toggle_publish', slug=p.slug) }}" style="display: inline;">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                    <button type="submit" style="padding: 0.45rem 0.85rem; background: transparent; border: 1px solid var(--border, #334155); color: var(--text-muted, #94a3b8); border-radius: 6px; cursor: pointer; font-size: 0.82rem;">
+                                        {% if p.published %}Unpublish{% else %}Publish{% endif %}
+                                    </button>
+                                </form>
+
+                                <form method="POST" action="{{ url_for('admin.project_delete', slug=p.slug) }}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete \'{{ p.title }}\'? This cannot be undone.');">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                    <button type="submit" style="padding: 0.45rem 0.65rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; border-radius: 6px; cursor: pointer; font-size: 0.82rem;" title="Delete Project">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+<!-- Reusable Project Modal Component -->
+<div class="modal" id="{{ project.modal_id }}" role="dialog" aria-modal="true" aria-labelledby="modal-title-{{ project.slug }}" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('{{ project.modal_id }}')" aria-label="Close modal dialog" role="button" tabindex="0">&times;</span>
+        
+        <h3 id="modal-title-{{ project.slug }}">
+            {{ project.title }}
+            {% if project.subtitle %} – {{ project.subtitle }}{% endif %}
+        </h3>
+
+        {% if project.badge %}
+        <div style="margin: 0.4rem 0 1rem;">
+            <span class="badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent, #38bdf8); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                {{ project.badge }}
+            </span>
+        </div>
+        {% endif %}
+
+        {% if project.description %}
+        <div class="modal-overview" style="margin-bottom: 1.25rem;">
+            <p><strong>Overview:</strong><br>{{ project.description }}</p>
+        </div>
+        {% endif %}
+
+        {% if project.features and project.features|length > 0 %}
+        <p><strong>Key Architectural &amp; Engineering Features:</strong></p>
+        <ul>
+            {% for feature in project.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        {% endif %}
+
+        {% if project.tech_items and project.tech_items|length > 0 %}
+        <p><strong>Technical Stack:</strong></p>
+        <div class="tech-stack" style="margin-bottom: 1rem;">
+            {% for tech in project.tech_items %}
+            <i class="{{ tech.icon }} colored" title="{{ tech.name }}">{{ tech.name }}</i>&nbsp;
+            {% endfor %}
+        </div>
+        <br>
+        {% endif %}
+
+        {% if project.challenges and project.challenges|length > 0 %}
+        <p><strong>Challenges Overcome:</strong></p>
+        <ul>
+            {% for challenge in project.challenges %}
+            <li>{{ challenge }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        {% endif %}
+
+        {% if project.future_improvements and project.future_improvements|length > 0 %}
+        <p><strong>Planned Future Improvements:</strong></p>
+        <ul>
+            {% for item in project.future_improvements %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        {% endif %}
+
+        <div class="modal-action-links" style="margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            {% if project.github_url %}
+            <p><strong>GitHub:</strong> <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">View Repository</a></p>
+            {% endif %}
+
+            {% if project.live_url %}
+            <p><strong>Live Demo:</strong> <a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">{{ project.demo_label }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
