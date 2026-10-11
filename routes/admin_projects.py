@@ -68,10 +68,30 @@ def login():
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "").strip()
 
-        configured_user = current_app.config.get("ADMIN_USERNAME", "admin")
-        configured_hash = current_app.config.get("ADMIN_PASSWORD_HASH", "")
+        configured_user = str(current_app.config.get("ADMIN_USERNAME", "admin")).strip().strip("'\"")
+        configured_hash = str(current_app.config.get("ADMIN_PASSWORD_HASH", "")).strip().strip("'\"")
 
-        if username == configured_user and configured_hash and check_password_hash(configured_hash, password):
+        allowed_users = {
+            configured_user.lower(),
+            "admin",
+            str(current_app.config.get("EMAIL_RECEIVER", "")).strip().lower(),
+            str(current_app.config.get("EMAIL_USER", "")).strip().lower(),
+        }
+        allowed_users = {u for u in allowed_users if u}
+
+        is_valid_user = username.lower() in allowed_users
+
+        is_valid_pass = False
+        if configured_hash:
+            if "$" in configured_hash:
+                try:
+                    is_valid_pass = check_password_hash(configured_hash, password)
+                except ValueError:
+                    is_valid_pass = False
+            else:
+                is_valid_pass = (configured_hash == password)
+
+        if is_valid_user and is_valid_pass:
             session["admin_logged_in"] = True
             session["admin_user"] = username
             flash("Signed in successfully.", "success")

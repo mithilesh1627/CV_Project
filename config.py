@@ -25,12 +25,19 @@ class Config:
     MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "portfolio")
 
     # Admin CMS Authentication
-    ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
-    ADMIN_PASSWORD_HASH = os.getenv(
-        "ADMIN_PASSWORD_HASH",
-        # Default dev password hash for "admin123" (change in production via environment variable)
-        generate_password_hash("admin123")
-    )
+    ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin").strip().strip("'\"")
+    _raw_admin_hash = os.getenv("ADMIN_PASSWORD_HASH", "").strip().strip("'\"")
+    _raw_admin_pass = os.getenv("ADMIN_PASSWORD", "").strip().strip("'\"")
+
+    if _raw_admin_hash:
+        if "$" in _raw_admin_hash:
+            ADMIN_PASSWORD_HASH = _raw_admin_hash
+        else:
+            ADMIN_PASSWORD_HASH = generate_password_hash(_raw_admin_hash)
+    elif _raw_admin_pass:
+        ADMIN_PASSWORD_HASH = generate_password_hash(_raw_admin_pass)
+    else:
+        ADMIN_PASSWORD_HASH = generate_password_hash("admin123")
 
     # Security settings
     SESSION_COOKIE_HTTPONLY = True
