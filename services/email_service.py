@@ -44,21 +44,41 @@ def send_contact_emails(name: str, sender_email: str, message: str, ip_address: 
 
     if resend_key and receiver_email:
         try:
+            payload = {
+                "from": "Portfolio Contact <onboarding@resend.dev>",
+                "to": [receiver_email],
+                "reply_to": clean_sender_email,
+                "subject": f"Portfolio Inquiry from {clean_name}",
+                "text": f"Name: {clean_name}\nEmail: {clean_sender_email}\n\nMessage:\n{message}",
+            }
             resp = requests.post(
                 "https://api.resend.com/emails",
                 headers={
                     "Authorization": f"Bearer {resend_key}",
                     "Content-Type": "application/json",
                 },
-                json={
-                    "from": "Portfolio Contact <onboarding@resend.dev>",
-                    "to": [receiver_email],
-                    "reply_to": clean_sender_email,
-                    "subject": f"Portfolio Inquiry from {clean_name}",
-                    "text": f"Name: {clean_name}\nEmail: {clean_sender_email}\n\nMessage:\n{message}",
-                },
+                json=payload,
                 timeout=5
             )
+
+            # If Resend in test mode restricts to account owner's email address
+            if resp.status_code == 403 and "own email address" in resp.text:
+                import re
+                match = re.search(r"own email address \(([^)]+)\)", resp.text)
+                if match:
+                    fallback_target = match.group(1).strip()
+                    logger.info("Resend test mode detected. Retrying dispatch to verified address: %s", fallback_target)
+                    payload["to"] = [fallback_target]
+                    resp = requests.post(
+                        "https://api.resend.com/emails",
+                        headers={
+                            "Authorization": f"Bearer {resend_key}",
+                            "Content-Type": "application/json",
+                        },
+                        json=payload,
+                        timeout=5
+                    )
+
             if resp.status_code in (200, 201):
                 logger.info("Email dispatched successfully via Resend API.")
                 return True, "Your message has been sent successfully!"
