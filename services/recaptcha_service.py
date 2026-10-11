@@ -9,7 +9,7 @@ GOOGLE_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify"
 def verify_recaptcha(response_token: str, remote_ip: str | None = None) -> tuple[bool, str]:
     """
     Server-side verification of Google reCAPTCHA v2 token.
-    
+
     Returns:
         (is_valid, user_friendly_message)
     """
@@ -30,7 +30,7 @@ def verify_recaptcha(response_token: str, remote_ip: str | None = None) -> tuple
 
     # 3. Check for presence of client response token
     if not response_token:
-        return False, "Please complete the 'I'm not a robot' verification checkbox."
+        return False, "Please complete security verification before submitting."
 
     # 4. Verify with Google API
     payload = {
@@ -47,16 +47,16 @@ def verify_recaptcha(response_token: str, remote_ip: str | None = None) -> tuple
 
         if data.get("success"):
             return True, "reCAPTCHA verified successfully."
-        
+
         # Log safe error codes from Google without exposing secret key
         error_codes = data.get("error-codes", [])
         logger.warning("Google reCAPTCHA verification rejected. Error codes: %s", error_codes)
-        
+
         # Provide clean, non-leaking user feedback
         if "timeout-or-duplicate" in error_codes:
-            return False, "Verification timed out or already used. Please check the reCAPTCHA box again."
-        
-        return False, "reCAPTCHA validation failed. Please check the verification box and try again."
+            return False, "Verification timed out or already used. Please try submitting again."
+
+        return False, "reCAPTCHA validation failed. Please try submitting again."
 
     except requests.RequestException as e:
         logger.error("Failed to reach Google reCAPTCHA verification service: %s", e)
