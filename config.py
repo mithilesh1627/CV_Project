@@ -17,6 +17,7 @@ class Config:
     EMAIL_USER = os.getenv("EMAIL_USER", "")
     EMAIL_PASS = os.getenv("EMAIL_PASS", "")
     EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER", "")
+    RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
     SMTP_SERVER = "smtp.gmail.com"
     SMTP_PORT = 465
 

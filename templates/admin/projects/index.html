@@ -20,7 +20,10 @@
             <h1 style="font-size: 2rem; color: var(--text, #f8fafc); margin: 0;">Portfolio Project CMS</h1>
         </div>
 
-        <div style="display: flex; gap: 1rem; align-items: center;">
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="{{ url_for('admin.inquiries_list') }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: var(--surface-card, #1a2234); border: 1px solid var(--border, #334155); color: var(--text, #f8fafc); border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem;">
+                <i class="fas fa-envelope"></i> Inquiries
+            </a>
             <a href="{{ url_for('admin.project_new') }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; background: linear-gradient(135deg, var(--primary, #3b82f6), #2563eb); color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem;">
                 <i class="fas fa-plus"></i> Add New Project
             </a>

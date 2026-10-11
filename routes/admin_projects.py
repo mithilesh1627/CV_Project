@@ -11,6 +11,7 @@ from flask import (
 from werkzeug.security import check_password_hash
 from services.project_service import ProjectService
 from repositories.project_repository import ProjectRepository
+from repositories.inquiry_repository import InquiryRepository
 from config import Config
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
@@ -22,6 +23,13 @@ def get_project_service() -> ProjectService:
         db_name=current_app.config.get("MONGODB_DATABASE", "portfolio")
     )
     return ProjectService(repository=repo)
+
+
+def get_inquiry_repository() -> InquiryRepository:
+    return InquiryRepository(
+        mongo_uri=current_app.config.get("MONGODB_URI", ""),
+        db_name=current_app.config.get("MONGODB_DATABASE", "portfolio")
+    )
 
 
 def get_or_create_csrf_token() -> str:
@@ -291,3 +299,50 @@ def project_toggle_publish(slug):
         flash(f"Failed to update status: {err}", "error")
 
     return redirect(url_for("admin.projects_list"))
+
+
+# -----------------------------------------------------------------------------
+# Contact Inquiries Management Routes
+# -----------------------------------------------------------------------------
+
+@admin_bp.route("/inquiries")
+@admin_required
+def inquiries_list():
+    """Display list of contact form inquiries saved in MongoDB Atlas."""
+    repo = get_inquiry_repository()
+    inquiries = repo.get_inquiries(limit=100)
+    csrf_token = get_or_create_csrf_token()
+    return render_template(
+        "admin/inquiries.html",
+        inquiries=inquiries,
+        csrf_token=csrf_token,
+        title="Contact Inquiries — Admin CMS"
+    )
+
+
+@admin_bp.route("/inquiries/<inquiry_id>/read", methods=["POST"])
+@admin_required
+def inquiry_mark_read(inquiry_id):
+    """Mark inquiry as read."""
+    if not validate_csrf():
+        flash("Invalid security token.", "error")
+        return redirect(url_for("admin.inquiries_list"))
+
+    repo = get_inquiry_repository()
+    repo.mark_as_read(inquiry_id)
+    flash("Inquiry marked as read.", "success")
+    return redirect(url_for("admin.inquiries_list"))
+
+
+@admin_bp.route("/inquiries/<inquiry_id>/delete", methods=["POST"])
+@admin_required
+def inquiry_delete(inquiry_id):
+    """Delete an inquiry from MongoDB."""
+    if not validate_csrf():
+        flash("Invalid security token.", "error")
+        return redirect(url_for("admin.inquiries_list"))
+
+    repo = get_inquiry_repository()
+    repo.delete_inquiry(inquiry_id)
+    flash("Inquiry has been deleted.", "info")
+    return redirect(url_for("admin.inquiries_list"))

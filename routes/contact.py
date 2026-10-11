@@ -71,8 +71,8 @@ def contact():
             flash(captcha_msg, "error")
             return redirect(url_for("contact.contact"))
 
-        # 6. Send Emails
-        success, feedback = send_contact_emails(name, email, message)
+        # 6. Send Emails & Record Inquiry
+        success, feedback = send_contact_emails(name, email, message, request.remote_addr or "")
         session["last_submission_time"] = current_time
 
         # Refresh CSRF token for the next submission
