@@ -21,6 +21,11 @@
         {% endwith %}
 
         <form method="POST" action="/contact" id="contact-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <div style="display:none;" aria-hidden="true">
+                <input type="text" name="website_url_hp" tabindex="-1" autocomplete="off">
+            </div>
+
             <div class="form-group">
                 <input required type="text" id="name" name="name" placeholder=" " pattern="[A-Za-z ]{2,}">
                 <label for="name">Name</label>
