@@ -1,4 +1,4 @@
-# Mithilesh Chaurasiya — Production Portfolio & Dynamic Project CMS
+# Mithilesh Chaurasiya Portfolio
 
 [![Python 3.12+](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Flask 3.1.0](https://img.shields.io/badge/Flask-3.1.0-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
